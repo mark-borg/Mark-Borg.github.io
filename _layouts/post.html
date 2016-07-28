@@ -1,15 +1,30 @@
 ---
 layout: default
+blogfeed: true
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:180.0 | append:'.' | split:'.' | first }}{% endcapture %}
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+<h1 class="post-title">{{ page.title }}</h1>
+<p class="post-meta">
+	{{ page.date | date_to_string }} &bull;
+	{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. read &bull;
+	<a href="#disqus_thread" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">Comments</a>
+</p>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+{% if page.image %}
+	<div class="post-banner" style="background-image: url(/img/post-banners/{{ page.image }});">
+		<img src="/img/post-banners/{{ page.image }}" alt="{{ page.title }}" />
+	</div>
+{% else %}
+	<div class="post-banner no-image">
+		<img src="/img/post-banners/no-image.gif" alt="{{ page.title }}" />
+	</div>
+{% endif %}
 
-</article>
+{{ content }}
+
+<hr />
+
+{% if post.comments != false %}
+<div id="disqus_thread"></div>
+{% endif %}
