@@ -12,7 +12,7 @@ body {
 }
 
 .wrapper {
-	width:950px;
+	width:1030px;
 	margin:0 auto;
 	*zoom: 1;
 }
@@ -181,7 +181,7 @@ th {
 /* Header / Sidebar Top */
 
 header {
-	width:275px;
+	width:330px;
 	float:left;
 	position:fixed;
 	border-right: 1px solid #eee;
@@ -204,19 +204,19 @@ nav ul {
 	background: #fff;
 	border-radius:5px;
 	border:1px solid #e5e5e5;
-	width:272px;
+	width:327px;
 }
 
 nav li {
 	float:left;
 	height:24px;
-	width:90px;
+	width:79px;
 	border-right:1px solid #e5e5e5;
 }
 
 nav li:last-child {
 	border-right:none;
-	width:89px;
+	width:86px;
 }
 
 nav li a {
@@ -380,7 +380,7 @@ a.post-banner:hover { background-size: auto 104%; }
 footer {
 	font-size: 14px;
 	text-align: center;
-	width:275px;
+	width:330px;
 	float:left;
 	position:fixed;
 	bottom:50px;
@@ -444,7 +444,7 @@ img.pull-left-responsive {
 	header {
 		background: none;
 		position: relative;
-		padding:0 320px 10px 0;
+		padding:0 340px 10px 0;
 		margin: 0;
 		min-height: 0;
 		border: none;
