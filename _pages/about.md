@@ -10,7 +10,7 @@ nobio:     true
 
 
 
-![Me](http://www.gravatar.com/avatar/33f90637d77f8d4da67faafd3af6597e?s=200){: .profile .pull-right }
+![Me](https://secure.gravatar.com/avatar/09567ffaad40fafe287921945e65fed5){: .profile .pull-right }
 
 PixelCog is multi-talented web programming shop operated by **Mike Greiling** in Minneapolis, MN.
 
