@@ -16,7 +16,7 @@ Hi, I'm **Mark Borg**: interested in computer vision, AI, machine learning, data
 
 ### About this Site
 
-This personal site contains some thoughts and musings about my personal projects and interesting work that I have been involved in. 
+This personal site contains some thoughts and musings about my research interests, personal projects and interesting work that I have been involved in. 
 
 Probably much of what is on this website is boring to many, interesting to some. If you belong to the latter, want to connect, or want to just say hi, I welcome you to shoot me an email or connect via the links below.
 

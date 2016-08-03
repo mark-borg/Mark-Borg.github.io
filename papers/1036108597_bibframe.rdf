@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:bf="http://bibframe.org/vocab/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:bfp="http://bibframe.org/bfp/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<bf:Instance rdf:about="http://d-nb.info/1036108597">
+			<bf:modeOfIssuance>Einbändiges Werk</bf:modeOfIssuance>
+			<bf:instanceOf rdf:resource="http://d-nb.info/bf_temp/work_1036108597" />
+			<bf:isbn13>9783050062754</bf:isbn13>
+			<bf:isbn10>3050062754</bf:isbn10>
+			<bf:ean>9783050062754</bf:ean>
+			<bf:nbn>13,N26</bf:nbn>
+			<bf:nbn>14,A04</bf:nbn>
+			<bf:local>
+				<bf:identifierScheme>VLB / Netzpublikationen</bf:identifierScheme>
+				<bf:identifierValue>4364020</bf:identifierValue>
+			</bf:local>
+			<bf:responsibilityStatement>Albert Borg ... (eds.)</bf:responsibilityStatement>
+			<bf:extent>354 S.</bf:extent>
+			<bf:dimensions>25 cm</bf:dimensions>
+			<bf:illustrativeContentNote>graph. Darst.</bf:illustrativeContentNote>
+			<bf:note>Literaturangaben</bf:note>
+			<bf:title>Perspectives on Maltese linguistics</bf:title>
+			<bf:providerEntity>
+				<bf:providerName>Akad.-Verl.</bf:providerName>
+				<bf:providerPlace>Berlin</bf:providerPlace>
+				<bf:providerDate>2014</bf:providerDate>
+			</bf:providerEntity>
+			<bf:frequency rdf:resource="http://marc21rdf.info/terms/continuingfre%23/u" />
+		</bf:Instance>
+		<bf:Work rdf:about="http://d-nb.info/bf_temp/work_1036108597">
+			<bf:hasInstance rdf:resource="http://d-nb.info/1036108597" />
+			<bf:associatedAgent>
+				<bf:Person>
+					<bf:hasGNDLink rdf:resource="http://d-nb.info/gnd/179911058" />
+					<bf:label>Albert, Borg</bf:label>
+					<bf:resourceRole rdf:resource="http://id.loc.gov/vocabulary/relators/edt" />
+				</bf:Person>
+			</bf:associatedAgent>
+			<bf:associatedAgent>
+				<bf:Person>
+					<bf:hasGNDLink rdf:resource="http://d-nb.info/gnd/187426023" />
+					<bf:label>Sandro, Caruana</bf:label>
+					<bf:resourceRole rdf:resource="http://id.loc.gov/vocabulary/relators/edt" />
+				</bf:Person>
+			</bf:associatedAgent>
+			<bf:associatedAgent>
+				<bf:Person>
+					<bf:hasGNDLink rdf:resource="http://d-nb.info/gnd/1046360256" />
+					<bf:label>Alexandra, Vella</bf:label>
+					<bf:resourceRole rdf:resource="http://id.loc.gov/vocabulary/relators/edt" />
+				</bf:Person>
+			</bf:associatedAgent>
+			<bf:subject rdf:resource="http://d-nb.info/gnd/4120245-4" />
+			<bf:class-ddc>492.79</bf:class-ddc>
+			<bf:class-ddc>492.79</bf:class-ddc>
+			<bf:title>Perspectives on Maltese linguistics</bf:title>
+		</bf:Work>
+	
+</rdf:RDF>
