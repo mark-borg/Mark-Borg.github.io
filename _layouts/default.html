@@ -55,27 +55,16 @@ If you are forking this repository, please remove or update the following
 Google Analytics tracking code and disqus shortname before enabling the
 javascript segment below.
 
-{% endcomment %}{% if site.github.owner_name == 'pixelcog' %}
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-20587204-1']);
-			_gaq.push(['_trackPageview']);
+{% endcomment %}{% if site.author == 'Mark Borg' %}
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-			var disqus_shortname  = 'pixelcog',
-			    disqus_identifier = '{{ page.path | split:'/' | last | cgi_escape }}',
-			    disqus_url        = '{{ site.url }}{{ page.url | uri_escape }}'
-			;
-			(function() {
-				var load = function(src){
-					var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
-					var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
-				};
-				load(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
-				load('//' + disqus_shortname + '.disqus.com/count.js');
-				if (document.getElementById('disqus_thread')) {
-					load('//' + disqus_shortname + '.disqus.com/embed.js');
-				}
-			})();
+		  ga('create', 'UA-81856151-1', 'auto');
+		  ga('send', 'pageview');
+
 		</script>
 {% endif %}
 	</body>
