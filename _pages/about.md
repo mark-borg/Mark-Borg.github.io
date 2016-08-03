@@ -16,10 +16,6 @@ PixelCog is multi-talented web programming shop operated by **Mike Greiling** in
 
 We specialize in both client and server-side coding and partner with [talented design teams](http://www.superlabdesign.com/) on most of our projects.  You can take a look at our recent work in the **[Projects](/projects/)** section of this website.
 
-### Hire Us!
-
-Got an interesting web app that you want built? Need some technical consulting on your next tech project?  [Contact us](/contact/) for a quote!
-
 ### Work With Us!
 
 We're always looking for talented software engineers with experience in one or more of the following tools:
@@ -34,7 +30,4 @@ If you are available for contracting opportunities or part-time employment, [ple
 ### Network
 
 Follow Michael:  
-↪ [github](http://github.com/mikegreiling) | [twitter](http://twitter.com/mikegreiling) | [facebook](http://facebook.com/mike.greiling)  
-
-Follow PixelCog:  
-↪ [github](http://github.com/pixelcog) | [twitter](http://twitter.com/pixelcog) | [facebook](http://facebook.com/pixelcog)
+↪ [github](https://github.com/mark-borg) | [linkedin](https://mt.linkedin.com/in/mark-borg-0ab6685)
