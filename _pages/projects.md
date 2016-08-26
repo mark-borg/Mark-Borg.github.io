@@ -47,11 +47,10 @@ Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam
 
 ## OmniApp
 
-[![ArkOwl Logo](/img/projects/placeholder.gif)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![ArkOwl Logo](/img/projects/placeholder.gif)](/projects/omniapp){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
 
-Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
+This is my MSc project, titled *"Omnidirectional Visual Tracking"*, that was submitted 
+in 2003 for my *MSc Engineering & Information Science* degree at the University of Reading.
 
-Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
-
-Consequat tincidunt sapien eros inceptos, suspendisse sem, hendrerit ridiculus mauris pede. Ac varius nec a lectus urna proin, elit in, suscipit vestibulum recusandae ultricies, non lobortis tincidunt at consequat. Lorem purus velit nibh, imperdiet nec. Leo ante sed praesent quisque, eu malesuada nam nam. Nec at pede vestibulum risus quam nec, inceptos diamlorem, scelerisque nam donec id purus ut, lobortis leo amet dolor.
+C++ was used for developing the application *OmniApp*. The dataset used for training and testing the algorithms is the PETS 2001 dataset. This was acquired using a *catadioptric sensor*.
 
