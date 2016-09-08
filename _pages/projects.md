@@ -45,9 +45,9 @@ Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est digniss
 Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
 
 
-## OmniApp
+## Omnidirectional Visual Tracking
 
-[![ArkOwl Logo](/img/projects/placeholder.gif)](/projects/omniapp){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![OmniApp](/img/projects/omnidirectional.png)](/projects/omniapp){: .post-banner style='background-image: url(/img/projects/omnidirectional.png);'}
 
 This is my MSc project, titled *"Omnidirectional Visual Tracking"*, that was submitted 
 in 2003 for my *MSc Engineering & Information Science* degree at the University of Reading.

@@ -3,7 +3,7 @@ permalink: /projects/omniapp
 layout: default
 title:  OmniApp - Omnidirectional Visual Surveillance
 tags:   
-image:  placeholder.gif
+image:  omnidirectional.png
 ---
 
 # OmniApp - Omnidirectional Visual Surveillance
@@ -25,7 +25,7 @@ a lot, one can think of a catadioptric sensor as consisting of a normal camera v
 parabolic-shaped mirror. To be useful, the mirror must be perfectly aligned with and placed at a precise distace 
 from the camera. The main advantage of a catadioptric sensor is its panoramic view of the world, being able to
 view a full hemisphere (360 degrees by 90 degrees. Some example images of catadioptric sensors and the output 
-that they give can be found [here](http://www.cis.upenn.edu/~kostas/omni.html.)
+that they give can be found [here](http://www.cis.upenn.edu/~kostas/omni.html) and [here](https://sites.google.com/site/piropodatabase/sample-videos).
 
 Below is the reproduced abstract of my thesis.
 
