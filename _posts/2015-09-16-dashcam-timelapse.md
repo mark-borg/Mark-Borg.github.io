@@ -2,7 +2,7 @@
 layout: post
 title:  Dashcam Timelapse
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Dashcam Timelapse

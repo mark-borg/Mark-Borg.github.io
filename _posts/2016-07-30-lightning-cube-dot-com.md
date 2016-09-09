@@ -2,7 +2,7 @@
 layout: post
 title:  End of an era - Lightning Cube website
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 After more than 10 years, I have decided to let go of the website www.lightningcube.com. 

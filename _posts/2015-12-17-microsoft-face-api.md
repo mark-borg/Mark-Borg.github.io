@@ -2,7 +2,7 @@
 layout: post
 title:  Evaluating Microsoft Face API
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

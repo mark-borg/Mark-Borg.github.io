@@ -2,7 +2,7 @@
 layout: post
 title:  Kaggle Competition Shelter Animal Outcomes - Experimenting with SOMs
 tags:   SOMs
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Some experimentation with SOMs (Self Organising Maps) for the Kaggle Competition 'Shelter Animal Outcomes'.

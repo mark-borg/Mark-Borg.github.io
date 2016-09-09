@@ -2,7 +2,7 @@
 layout: post
 title:  Shopping Cart Abandonment - initial research and ideas
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

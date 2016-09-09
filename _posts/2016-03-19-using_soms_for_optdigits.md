@@ -2,7 +2,7 @@
 layout: post
 title:  Using SOMs - experimentation with the optdigits dataset
 tags:   SOM
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

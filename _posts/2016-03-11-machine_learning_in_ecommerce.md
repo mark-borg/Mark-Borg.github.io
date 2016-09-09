@@ -2,7 +2,7 @@
 layout: post
 title:  Machine Learning in eCommerce - some throughts
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

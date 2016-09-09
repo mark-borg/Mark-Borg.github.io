@@ -3,12 +3,12 @@ permalink: /projects/my_project
 layout: default
 title:  My Project
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 # My Project
 ------------------
 
-In addition to being a great static webhost, Amazon S3 can be used as a cheap way to blindly redirect domain names. I needed to use this method recently so I thought I'd document the process for future reference.
+Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed.
 
 

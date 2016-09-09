@@ -2,7 +2,7 @@
 layout: post
 title:  Sentiment Analysis applied to the Maltese language
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

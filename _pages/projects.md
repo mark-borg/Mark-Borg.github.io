@@ -11,16 +11,19 @@ Here are some projects I have been involved in and things that I've done.
 
 ## Maltese Text-to-Speech 
 
-[![ArkOwl Logo](/img/projects/placeholder.gif)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![Maltese Text-to-Speech](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
 
 Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
 
 Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
 
 
+{% comment %}
+
+
 ## Super Market Product Measuring System
 
-[![ArkOwl Logo](/img/projects/placeholder.gif)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![Super Market Product Measuring System](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
 
 Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
 
@@ -29,7 +32,7 @@ Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam
 
 ## CRS Traffic Management System
 
-[![FullMonte Logo](/img/projects/placeholder.gif)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![CRS Traffic Management System](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
 
 Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
 
@@ -38,11 +41,14 @@ Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam
 
 ## AVITRACK
 
-[![FullMonte Logo](/img/projects/placeholder.gif)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.gif);'}
+[![AVITRACK](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
 
 Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
 
 Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
+
+
+{% endcomment %}
 
 
 ## Omnidirectional Visual Tracking

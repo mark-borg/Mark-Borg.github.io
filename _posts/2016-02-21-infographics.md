@@ -2,7 +2,7 @@
 layout: post
 title:  Infographics
 tags:   SOMs
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Infographics.

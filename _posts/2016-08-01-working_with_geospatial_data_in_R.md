@@ -2,7 +2,7 @@
 layout: post
 title:  Working with Geospatial data in R
 tags:   GPS, GPX
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Lorem ipsum dolor sit amet.

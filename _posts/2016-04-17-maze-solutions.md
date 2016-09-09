@@ -2,7 +2,7 @@
 layout: post
 title:  Maze Solutions in R
 tags:   
-image:  placeholder.gif
+image:  placeholder.png
 ---
 
 Maze solutions.
