@@ -2,12 +2,16 @@
 layout: post
 title:  Big Data Summit Malta
 tags:   
-image:  placeholder.png
+image:  summit.png
 ---
 
-Interesting talks at the Big Data Summit, Malta, held on the 22nd of June 2016.
+&nbsp;
+
+Interesting talks at the [Big Data Summit, Malta](https://bigdatasummit.org/), held on the 22nd of June 2016.
+
+&nbsp;
+
 
 {{ more }}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

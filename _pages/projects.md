@@ -11,11 +11,9 @@ Here are some projects I have been involved in and things that I've done.
 
 ## Maltese Text-to-Speech 
 
-[![Maltese Text-to-Speech](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
+[![Maltese Text-to-Speech](/img/projects/text-to-speech.png)](/projects/text_to_speech){: .post-banner style='background-image: url(/img/projects/text-to-speech.png);'}
 
-Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
-
-Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
+The first SAPI-compliant text-to-speech engine for the Maltese language, featuring three voices - male, female and child.
 
 
 {% comment %}
@@ -39,16 +37,15 @@ Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est digniss
 Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
 
 
+{% endcomment %}
+
+
 ## AVITRACK
 
-[![AVITRACK](/img/projects/placeholder.png)](/projects/my_project){: .post-banner style='background-image: url(/img/projects/placeholder.png);'}
+[![AVITRACK](/img/projects/avitrack.png)](/projects/avitrack){: .post-banner style='background-image: url(/img/projects/avitrack.png);'}
 
-Lorem ipsum dolor sit amet, vehicula pede purus bibendum, arcu metus est dignissim excepteur vestibulum, facere nunc, metus litora mi libero nulla. Officiis metus quo dui, integer maecenas, in lacinia donec pulvinar odio, magna adipiscing a duis vestibulum, eleifend nec et eu orci urna. Cursus mauris adipiscing semper blandit, arcu sed. 
+AVITRACK was a IST-FP6 European project in collaboration with Silogic S.A. Toulouse (FR), University of Reading (UK), CCI Aeroport Toulouse Blagnac (France), Fedespace (France), Tekever LDA, Lisbon (Portugal), ARC Seibersdorf research GMBH, Wien (Austria), Technique Universities, Vienna (Austria), IKT (Norway) and Euro Inter (Toulouse France). During this 2-year project, algorithms were developed to recognize the servicing activities around parked aircraft in an apron area monitored by eight cameras in Toulouse airport (France).
 
-Est lorem, proin sit curabitur suscipit erat vel, lectus elementum vitae aliquam ante at neque. Orci nulla nulla gravida nostra aliquam ligula, eget sed est quam vel ut, ac elementum, ultricies augue tempor urna mattis id, est imperdiet rutrum morbi nam. 
-
-
-{% endcomment %}
 
 
 ## Omnidirectional Visual Tracking
