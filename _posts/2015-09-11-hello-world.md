@@ -37,3 +37,4 @@ Some good books on R that I am currently reading are the following:
 
 [![The Art of R Programming](/img/posts/the-art-of-r-programming.png)](https://www.amazon.com/gp/search?index=books&linkCode=qs&keywords=9781593273842) | [![R Graphics Cookbook](/img/posts/r-graphics-cookbook.png)](http://shop.oreilly.com/product/0636920023135.do) | [![Data Mining with R](/img/posts/data-mining-with-r.png)](http://www.dcc.fc.up.pt/~ltorgo/DataMiningWithR/)
 
+
