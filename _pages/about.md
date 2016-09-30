@@ -10,7 +10,9 @@ nobio:     true
 
 
 
-![Me](https://secure.gravatar.com/avatar/09567ffaad40fafe287921945e65fed5){: .profile .pull-right }
+![Me](/img/me.jpeg){: style="float:right"}
+
+&nbsp; 
 
 Hi, I'm **Mark Borg**: interested in computer vision, AI, machine learning, data science, computer programming, and anything that deals with technology.
 
