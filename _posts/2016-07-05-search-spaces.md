@@ -62,8 +62,8 @@ website. Editing of the video was performed in Adobe Premiere and then uploaded 
 I plan to extend this work further. Apart from video material, interactive visualisations can help a student to 'experiment' with 
 this concept. I might use R for the visualisation part.
 
-Another option is to leverage non-traditional user interfaces, like [*Tangible User Interfaces (TUIs)*](https://en.wikipedia.org/wiki/Tangible_user_interface). 
-Some great work on TUIs is currently ongoing at Middlesex University by other researchers and colleagues of mine.
+<!-- Another option is to leverage non-traditional user interfaces, like [*Tangible User Interfaces (TUIs)*](https://en.wikipedia.org/wiki/Tangible_user_interface). 
+Some great work on TUIs is currently ongoing at Middlesex University by other researchers and colleagues of mine. -->
 
 Look out for more on this in future blogs!
 
