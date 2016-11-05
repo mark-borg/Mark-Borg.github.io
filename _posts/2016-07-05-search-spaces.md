@@ -43,14 +43,14 @@ Examples include the [*8-Queens Puzzle*](https://en.wikipedia.org/wiki/Eight_que
 [River Crossing puzzles](https://en.wikipedia.org/wiki/River_crossing_puzzle). While these are valid examples, in my opinion, they 
 fail to show how to cross the gap from the problem grounded in the physical world to an abstract representation of the problem.
 
-In this introductory [video](https://www.youtube.com/watch?v=bWhto_JXoHk) I am trying to convey the following messages:
+In this introductory [video](https://youtu.be/f-l4ZXo7_aM) I am trying to convey the following messages:
 
 - any complex problem can be modelled or represented as a *state space*
 - an *evaluation function* helps us to compare the 'goodness' of points (solutions) within the state space
 - different AI algorithms employ different 'tricks' (*heuristics*) of how to traverse/explore/search a state space
 
 
-<iframe width="590" height="333" src="https://www.youtube.com/watch?v=bWhto_JXoHk" frameborder="1" allowfullscreen></iframe>
+<iframe width="590" height="333" src="https://youtu.be/f-l4ZXo7_aM" frameborder="1" allowfullscreen></iframe>
 
 &nbsp;
 
