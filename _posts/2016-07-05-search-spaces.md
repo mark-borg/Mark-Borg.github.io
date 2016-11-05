@@ -50,7 +50,8 @@ In this introductory [video](https://youtu.be/f-l4ZXo7_aM) I am trying to convey
 - different AI algorithms employ different 'tricks' (*heuristics*) of how to traverse/explore/search a state space
 
 
-<iframe width="590" height="333" src="https://youtu.be/f-l4ZXo7_aM" frameborder="1" allowfullscreen></iframe>
+{% include youtubePlayer.html id="f-l4ZXo7_aM" %}
+
 
 &nbsp;
 
