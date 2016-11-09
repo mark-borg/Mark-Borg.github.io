@@ -57,6 +57,7 @@ One thing to note is that the CSV files are not in UTF format, but are encoded i
 Hence the need for the `fileEncoding` parameter in `read.csv()`.
 
 
+
 ### Data cleaning
 
 Some data cleaning is necessary to ensure that the datetime columns are actual Date-Time objects (and not string). Same for the numeric fields.
@@ -76,6 +77,8 @@ df[,2] <- as.numeric(df[,2])
 df <- df[complete.cases(df),]
 ```
 
+After the data cleaning process, we end up with a dataset with 87,967 measurements covering 10 months of data (January to October 2016).
+
 
 ### 3D Plotting
 
@@ -84,7 +87,7 @@ When it comes to plotting a 3D surface plot of the loaded data, we encounter a s
 Currently, when plotting any 3D surface maps, R does not allow the use of dates and timestamps for the horizontal dimensions (X and Y).
 
 Thus we need to modify the data, first, to ensure that the dates and timestamps are sampled at regular intervals with no missing date/time ranges. Secondly, we must
-replace the original date and time values with more friendly numeric values.
+replace (or cast) the original date and time values with more friendly numeric values.
 
 The following code does this:
 
@@ -167,19 +170,58 @@ The following graphs show the 3D surface plots obtained using R for the months J
 ![PV Output - Sept 2016](\img\posts\pv-sept-2016.png)
 ![PV Output - Oct 2016](\img\posts\pv-oct-2016.png)
 
+And the image below shows a full 3D plot over the approx 10-months worth of data (click on the image to see a larger version):
 
-And the image below shows the full graph for around 2 weeks.
+[![PV Output - first 10 months of 2016](\img\posts\pv-all.png)](\img\posts\pv-all.png)
 
-![PV Output - first 10 months of 2016](\img\posts\pv-all.png)
+Some visual observations that can be drawn from these 3D surface plots are the following:
+
+- Note the effect of winter weather (especially cloud coverage) on power production. For the months of July and August one can see that the
+plot is nearly solid with little variation due to the lack of clouds in the sky. There are some well-defined gaps in the data - these are
+due to power interruptions due to some ongoing electrical works that I carried out in the house during these months.
+
+- Also visually evident is the longer hours of sunshine during the summer months compared to the winter months. This can be seen from the wider base of the surface plot.
 
 
 
+### Further Analysis
 
-<!--
-	(*) Mention possible data analysis that can be done...
- 
-	(*) Google Project Sunroof
-	
-	(*) mention some other stuff on how to measure yield
-	
--->
+Much analysis can be applied to this dataset. One experiment I wish to run is to find correlations between the PV data and weather data. 
+Data from historical weather data services, like [weatherspark.com](https://weatherspark.com/history/32343/2015/Luqa-Malta), could be used for this experiment. Of particular
+interest is to search for correlation effects (as there probably is) between PV data and cloud coverage data like the ones shown below and reproduced from the *weatherspark*
+website. 
+
+![Cloud Coverage](\img\posts\malta-cloud-coverage.png)
+
+![Hourly Cloud Coverage](\img\posts\malta-hourly-cloud-coverage.png)
+
+It will also be interesting to see if, apart from the somewhat obvious cloud coverage correlation that I think exists, if there are any relationships with temperature (the efficiency of solar 
+cells is known to be temperature-sensitive), with humidity, wind speed, and cloud ceiling height. All this historic weather data appears to be available on the *[weatherspark.com](https://weatherspark.com/history/32343/2015/Luqa-Malta)* site.
+This needs further in-depth investigation. Any future analysis (and results) will be posted in this blog.
+
+[![book: correlation and causation, Lee Baker](\img\posts\book-correlation-and-causation.png){: .pull-right}](https://leanpub.com/correlationandcausation) Obviously while doing this analysis, one has to keep in mind that *correlation* does <u>not</u> necessarily imply *causation*. And we must be on the lookout against wrong conclusions based on
+wrong direction causation, third cause fallacies, and coincidental causation. 
+Recently I came across a good book by Lee Baker on the correlation-causation topic. It is an easy-to-read book and an eye-opener on correlation and causation. Details about this book 
+can be found [here](https://leanpub.com/correlationandcausation).
+
+
+
+### Google's Project Sunroof and other interesting bits
+
+There is some interested work that combines *computer vision* with PV power yield prediction. For example [this work](http://www.academia.edu/13842627/Cloud_images_capturing_system_for_solar_power_level_prediction) 
+employs a sky camera system with detection of types and movements of clouds in order to predict variation in power output. [ARENA's work](http://arena.gov.au/media/tracking-clouds-for-smoother-solar-energy-delivery/) 
+is another such example.
+
+Also of interest is Google's [*Project Sunroof*](https://www.google.com/get/sunroof#p=0). This project is currently operating only in the US. But it's a very interesting idea
+that fuses a number of datasets together in order to provide information on the optimal placement and orientation of PV panels on building roofs and the predicted/expected 
+output. As mentioned on the project's website, solar saving calculations make use of the roof size and shape (using the same 3D building structure acquisition technology as used in
+Google Maps), and compute shading zones based on 3D structure and the sun's yearly pattern across the sky. In addition, local weather data is used, together with data on
+local electricity prices, local solar panel costs, and estimated incentives, in order to arrive at a final savings estimate.
+
+[![Project Sunroof](\img\posts\project-sunroof.png)](https://www.google.com/get/sunroof#p=0)
+
+![Sunlight pattern on roofs](\img\posts\sun.gif) (Source: Wired.com)
+
+More info can be found [here](https://www.wired.com/2015/08/much-can-save-solar-panels-just-ask-google/#slide-1).
+
+
