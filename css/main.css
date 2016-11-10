@@ -416,6 +416,10 @@ img.pull-left-responsive {
 	margin: 0 1em 1em 0;
 }
 
+.center {
+  text-align: center;
+}
+
 @media print, screen and (max-width: 700px) {
 	img.pull-left-responsive,
 	img.pull-right-responsive {
