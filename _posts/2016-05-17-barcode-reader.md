@@ -108,17 +108,146 @@ Once we know the widths in pixels of the EAN-13 barcode modules, we can start th
 ### Test Data
 
 To check the robustness of our algorithm, we used a normal webcamera to acquire images of real barcodes taken under normal conditions (real products, no structured lighting).
+Some of the test images are given below (click for a larger view):
 
-
-....WIP....
+[![barcode1](/img/posts/barcode01.jpg){: height="120px"}](/img/posts/barcode01.jpg)
+[![barcode2](/img/posts/barcode02.jpg){: height="120px"}](/img/posts/barcode02.jpg)
+[![barcode3](/img/posts/barcode03.jpg){: height="120px"}](/img/posts/barcode03.jpg)
+[![barcode4](/img/posts/barcode04.jpg){: height="120px"}](/img/posts/barcode04.jpg)
+[![barcode5](/img/posts/barcode05.jpg){: height="120px"}](/img/posts/barcode05.jpg)
+[![barcode6](/img/posts/barcode06.jpg){: height="120px"}](/img/posts/barcode06.jpg)
+[![barcode7](/img/posts/barcode07.jpg){: height="120px"}](/img/posts/barcode07.jpg)
+[![barcode8](/img/posts/barcode08.jpg){: height="120px"}](/img/posts/barcode08.jpg)
+[![barcode9](/img/posts/barcode09.jpg){: height="120px"}](/img/posts/barcode09.jpg)
+[![barcode10](/img/posts/barcode10.jpg){: height="120px"}](/img/posts/barcode10.jpg)
+[![barcode11](/img/posts/barcode11.jpg){: height="120px"}](/img/posts/barcode11.jpg)
+[![barcode12](/img/posts/barcode12.jpg){: height="120px"}](/img/posts/barcode12.jpg)
+[![barcode13](/img/posts/barcode13.jpg){: height="120px"}](/img/posts/barcode13.jpg)
+[![barcode14](/img/posts/barcode14.jpg){: height="120px"}](/img/posts/barcode14.jpg)
+[![barcode15](/img/posts/barcode15.jpg){: height="120px"}](/img/posts/barcode15.jpg)
+[![barcode16](/img/posts/barcode16.jpg){: height="120px"}](/img/posts/barcode16.jpg)
+[![barcode17](/img/posts/barcode17.jpg){: height="120px"}](/img/posts/barcode17.jpg)
+[![barcode18](/img/posts/barcode18.jpg){: height="120px"}](/img/posts/barcode18.jpg)
+[![barcode19](/img/posts/barcode19.jpg){: height="120px"}](/img/posts/barcode19.jpg)
+[![barcode20](/img/posts/barcode20.jpg){: height="120px"}](/img/posts/barcode20.jpg)
 
 
 
 ### Results
 
+The following are the results of barcode recognition (EAN-13 & UPC-A). Where the detection & recognition is successful, the correct barcode number is displayed in green and overlaid on the 
+original image. Where barcode recognition fails, the program draws a large red cross overlaid on the image.
+
+[![result01](/img/posts/barcodereader/result01.png){: height="172px"}](/img/posts/barcodereader/result01.png)
+[![result02](/img/posts/barcodereader/result02.png){: height="172px"}](/img/posts/barcodereader/result02.png)
+[![result03](/img/posts/barcodereader/result03.png){: height="172px"}](/img/posts/barcodereader/result03.png)
+[![result04](/img/posts/barcodereader/result04.png){: height="172px"}](/img/posts/barcodereader/result04.png)
+[![result05](/img/posts/barcodereader/result05.png){: height="172px"}](/img/posts/barcodereader/result05.png)
+[![result06](/img/posts/barcodereader/result06.png){: height="172px"}](/img/posts/barcodereader/result06.png)
+[![result07](/img/posts/barcodereader/result07.png){: height="172px"}](/img/posts/barcodereader/result07.png)
+[![result08](/img/posts/barcodereader/result08.png){: height="172px"}](/img/posts/barcodereader/result08.png)
+[![result09](/img/posts/barcodereader/result09.png){: height="172px"}](/img/posts/barcodereader/result09.png)
+[![result10](/img/posts/barcodereader/result10.png){: height="172px"}](/img/posts/barcodereader/result10.png)
+[![result11](/img/posts/barcodereader/result11.png){: height="172px"}](/img/posts/barcodereader/result11.png)
+[![result12](/img/posts/barcodereader/result12.png){: height="172px"}](/img/posts/barcodereader/result12.png)
+[![result13](/img/posts/barcodereader/result13.png){: height="172px"}](/img/posts/barcodereader/result13.png)
+[![result14](/img/posts/barcodereader/result14.png){: height="172px"}](/img/posts/barcodereader/result14.png)
+[![result15](/img/posts/barcodereader/result15.png){: height="172px"}](/img/posts/barcodereader/result15.png)
+[![result16](/img/posts/barcodereader/result16.png){: height="172px"}](/img/posts/barcodereader/result16.png)
+[![result17](/img/posts/barcodereader/result17.png){: height="172px"}](/img/posts/barcodereader/result17.png)
+[![result18](/img/posts/barcodereader/result18.png){: height="172px"}](/img/posts/barcodereader/result18.png)
+[![result19](/img/posts/barcodereader/result19.png){: height="172px"}](/img/posts/barcodereader/result19.png)
+[![result20](/img/posts/barcodereader/result20.png){: height="172px"}](/img/posts/barcodereader/result20.png)
+[![result21](/img/posts/barcodereader/result21.png){: height="172px"}](/img/posts/barcodereader/result21.png)
+[![result22](/img/posts/barcodereader/result22.png){: height="172px"}](/img/posts/barcodereader/result22.png)
+[![result23](/img/posts/barcodereader/result23.png){: height="172px"}](/img/posts/barcodereader/result23.png)
+[![result24](/img/posts/barcodereader/result24.png){: height="172px"}](/img/posts/barcodereader/result24.png)
+[![result25](/img/posts/barcodereader/result25.png){: height="172px"}](/img/posts/barcodereader/result25.png)
+[![result26](/img/posts/barcodereader/result26.png){: height="172px"}](/img/posts/barcodereader/result26.png)
+[![result27](/img/posts/barcodereader/result27.png){: height="172px"}](/img/posts/barcodereader/result27.png)
+[![result28](/img/posts/barcodereader/result28.png){: height="172px"}](/img/posts/barcodereader/result28.png)
+[![result29](/img/posts/barcodereader/result29.png){: height="172px"}](/img/posts/barcodereader/result29.png)
+[![result30](/img/posts/barcodereader/result30.png){: height="172px"}](/img/posts/barcodereader/result30.png)
+[![result31](/img/posts/barcodereader/result31.png){: height="172px"}](/img/posts/barcodereader/result31.png)
+[![result32](/img/posts/barcodereader/result32.png){: height="172px"}](/img/posts/barcodereader/result32.png)
+[![result33](/img/posts/barcodereader/result33.png){: height="172px"}](/img/posts/barcodereader/result33.png)
+[![result34](/img/posts/barcodereader/result34.png){: height="172px"}](/img/posts/barcodereader/result34.png)
+[![result35](/img/posts/barcodereader/result35.png){: height="172px"}](/img/posts/barcodereader/result35.png)
+[![result36](/img/posts/barcodereader/result36.png){: height="172px"}](/img/posts/barcodereader/result36.png)
+[![result37](/img/posts/barcodereader/result37.png){: height="172px"}](/img/posts/barcodereader/result37.png)
+[![result38](/img/posts/barcodereader/result38.png){: height="172px"}](/img/posts/barcodereader/result38.png)
+[![result39](/img/posts/barcodereader/result39.png){: height="172px"}](/img/posts/barcodereader/result39.png)
+[![result40](/img/posts/barcodereader/result40.png){: height="172px"}](/img/posts/barcodereader/result40.png)
+[![result41](/img/posts/barcodereader/result41.png){: height="172px"}](/img/posts/barcodereader/result41.png)
+[![result42](/img/posts/barcodereader/result42.png){: height="172px"}](/img/posts/barcodereader/result42.png)
+[![result43](/img/posts/barcodereader/result43.png){: height="172px"}](/img/posts/barcodereader/result43.png)
+[![result44](/img/posts/barcodereader/result44.png){: height="172px"}](/img/posts/barcodereader/result44.png)
+[![result45](/img/posts/barcodereader/result45.png){: height="172px"}](/img/posts/barcodereader/result45.png)
+[![result46](/img/posts/barcodereader/result46.png){: height="172px"}](/img/posts/barcodereader/result46.png)
+[![result47](/img/posts/barcodereader/result47.png){: height="172px"}](/img/posts/barcodereader/result47.png)
+[![result48](/img/posts/barcodereader/result48.png){: height="172px"}](/img/posts/barcodereader/result48.png)
+[![result49](/img/posts/barcodereader/result49.png){: height="172px"}](/img/posts/barcodereader/result49.png)
+[![result50](/img/posts/barcodereader/result50.png){: height="172px"}](/img/posts/barcodereader/result50.png)
+[![result51](/img/posts/barcodereader/result51.png){: height="172px"}](/img/posts/barcodereader/result51.png)
+[![result52](/img/posts/barcodereader/result52.png){: height="172px"}](/img/posts/barcodereader/result52.png)
+[![result53](/img/posts/barcodereader/result53.png){: height="172px"}](/img/posts/barcodereader/result53.png)
+[![result54](/img/posts/barcodereader/result54.png){: height="172px"}](/img/posts/barcodereader/result54.png)
+[![result55](/img/posts/barcodereader/result55.png){: height="172px"}](/img/posts/barcodereader/result55.png)
+[![result56](/img/posts/barcodereader/result56.png){: height="172px"}](/img/posts/barcodereader/result56.png)
+[![result57](/img/posts/barcodereader/result57.png){: height="172px"}](/img/posts/barcodereader/result57.png)
+[![result58](/img/posts/barcodereader/result58.png){: height="172px"}](/img/posts/barcodereader/result58.png)
+[![result59](/img/posts/barcodereader/result59.png){: height="172px"}](/img/posts/barcodereader/result59.png)
+[![result60](/img/posts/barcodereader/result60.png){: height="172px"}](/img/posts/barcodereader/result60.png)
+[![result61](/img/posts/barcodereader/result61.png){: height="172px"}](/img/posts/barcodereader/result61.png)
+[![result62](/img/posts/barcodereader/result62.png){: height="172px"}](/img/posts/barcodereader/result62.png)
+[![result63](/img/posts/barcodereader/result63.png){: height="172px"}](/img/posts/barcodereader/result63.png)
+[![result64](/img/posts/barcodereader/result64.png){: height="172px"}](/img/posts/barcodereader/result64.png)
+[![result65](/img/posts/barcodereader/result65.png){: height="172px"}](/img/posts/barcodereader/result65.png)
+[![result66](/img/posts/barcodereader/result66.png){: height="172px"}](/img/posts/barcodereader/result66.png)
+[![result67](/img/posts/barcodereader/result67.png){: height="172px"}](/img/posts/barcodereader/result67.png)
+[![result68](/img/posts/barcodereader/result68.png){: height="172px"}](/img/posts/barcodereader/result68.png)
+[![result69](/img/posts/barcodereader/result69.png){: height="172px"}](/img/posts/barcodereader/result69.png)
+[![result70](/img/posts/barcodereader/result70.png){: height="172px"}](/img/posts/barcodereader/result70.png)
+[![result71](/img/posts/barcodereader/result71.png){: height="172px"}](/img/posts/barcodereader/result71.png)
+[![result72](/img/posts/barcodereader/result72.png){: height="172px"}](/img/posts/barcodereader/result72.png)
+[![result73](/img/posts/barcodereader/result73.png){: height="172px"}](/img/posts/barcodereader/result73.png)
+
+As one can see from the results obtained, the recognition algorithm we use is quite robust. Even cases where
+the barcode is poorly lit or irregularly warped are recognised successfully.
 
 
-....WIP....
+### Vanity Barcodes
+
+A recent and interesting trend is the use of artistic elements or modifications to traditional barcodes. This is typically done for branding purposes, advertising and/or 
+marketing. Such barcodes suffer no loss of information (they carry the same data as traditional barcodes), and the artistic element is there only for human consumption.
+A barcode reader should not, in theory, be affected by these modifications. These type of artistic barcodes are known as 
+[*Vanity Barcodes*](http://www.barcoding.com/blog/vanity-barcodes-the-latest-trend-in-barcodes/) (or sometimes called *Designer Barcodes*). 
+Examples of real vanity barcodes are given below. More examples can be found [here](http://www.vanitybarcodes.com/).
+
+![vanity barcode example](/img/posts/vanity-barcode-1.png)
+![vanity barcode example](/img/posts/vanity-barcode-2.png)
+
+When I came across vanity barcodes, I decided to try out the program BarcodeReader on these, in part to check the robustness of the program. Will the algorithm be side-tracked
+with the extra parts and fail? Below are the results of this experiment.
+
+
+[![result73](/img/posts/barcodereader/vanity01a.png){: height="320px"}](/img/posts/barcodereader/vanity01a.png)
+[![result73](/img/posts/barcodereader/vanity01b.png){: height="320px"}](/img/posts/barcodereader/vanity01b.png)
+[![result73](/img/posts/barcodereader/vanity02a.png){: width="295px"}](/img/posts/barcodereader/vanity02a.png)
+[![result73](/img/posts/barcodereader/vanity02b.png){: height="320px"}](/img/posts/barcodereader/vanity02b.png)
+[![result73](/img/posts/barcodereader/vanity03a.png){: width="295px"}](/img/posts/barcodereader/vanity03a.png)
+[![result73](/img/posts/barcodereader/vanity03b.png){: height="320px"}](/img/posts/barcodereader/vanity03b.png)
+[![result73](/img/posts/barcodereader/vanity05a.png){: width="295px"}](/img/posts/barcodereader/vanity05a.png)
+[![result73](/img/posts/barcodereader/vanity05b.png){: height="320px"}](/img/posts/barcodereader/vanity05b.png)
+[![result73](/img/posts/barcodereader/vanity06a.png){: width="295px"}](/img/posts/barcodereader/vanity06a.png)
+[![result73](/img/posts/barcodereader/vanity06b.png){: height="320px"}](/img/posts/barcodereader/vanity06b.png)
+[![result73](/img/posts/barcodereader/vanity07a.png){: width="295px"}](/img/posts/barcodereader/vanity07a.png)
+[![result73](/img/posts/barcodereader/vanity07b.png){: height="320px"}](/img/posts/barcodereader/vanity07b.png)
+[![result73](/img/posts/barcodereader/vanity08a.png){: width="295px"}](/img/posts/barcodereader/vanity08a.png)
+[![result73](/img/posts/barcodereader/vanity08b.png){: height="320px"}](/img/posts/barcodereader/vanity08b.png)
+[![result73](/img/posts/barcodereader/vanity09a.png){: height="320px"}](/img/posts/barcodereader/vanity09a.png)
+[![result73](/img/posts/barcodereader/vanity09b.png){: height="320px"}](/img/posts/barcodereader/vanity09b.png)
+
 
 
 
@@ -135,5 +264,6 @@ set of tools that build Windows installation packages from XML source code. Some
 Extensive use is made of the [*OpenCV library*](http://opencv.org/). The program was developed using OpenCV beta 4 (release in August 2004). I think that only minor
 changes are needed to the core code in order to make it work with the latest version of OpenCV.
 
+[![BarcodeReader GUI](/img/posts/barcodereader-gui.png)](/img/posts/barcodereader-gui.png)
 
 
