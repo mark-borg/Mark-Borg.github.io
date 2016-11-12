@@ -24,15 +24,15 @@ where each element is an integer in the range 0..16. Here we use these pixel tot
 First we load the training and the test datasets in R:
 
 ```R
-trn <- read.table("optdigits.tra",sep=",")
-tst <- read.table("optdigits.tes",sep=",")
+traindata <- read.table("optdigits.tra",sep=",")
+testdata <- read.table("optdigits.tes",sep=",")
 ```
 
-Each row in `trn` and `tst` is an image. Viewing an image can be done as follows; here we are viewing the 31st training image, which happens to be an image of the digit 7:
+Each row in `traindata` and `testdata` is an image. Viewing an image can be done as follows; here we are viewing the 31st training image, which happens to be an image of the digit 7:
 
 ```R
 row.id <- 31
-m <- matrix(as.numeric(trn[row.id, 1:64]), nrow=8, ncol=8)
+m <- matrix(as.numeric(traindata[row.id, 1:64]), nrow=8, ncol=8)
 image(m[,8:1], col=grey(seq(0, 1, length=16)))
 ```
 
@@ -43,10 +43,10 @@ display this:
 
 ```R
 # select all training images for digit 7
-trn.7 <- trn[trn[,65]==7, 1:64]
+train.7 <- traindata[traindata[,65]==7, 1:64]
 
 # compute the average image from all the training images of digit 7
-average.7 <- matrix(as.numeric(colMeans(trn.7)), nrow=8, ncol=8)
+average.7 <- matrix(as.numeric(colMeans(train.7)), nrow=8, ncol=8)
 
 image(average.7[,8:1], col=grey(seq(0, 1, length=16)))
 ```
@@ -57,8 +57,8 @@ If we want to visually compare and contrast two digits to each other, we can com
 for digits 7 and 9:
 
 ```R
-trn.9 <- trn[trn[,65]==9, 1:64]
-average.9 <- matrix(as.numeric(colMeans(trn.9)), nrow=8, ncol=8)
+train.9 <- traindata[traindata[,65]==9, 1:64]
+average.9 <- matrix(as.numeric(colMeans(train.9)), nrow=8, ncol=8)
 
 # show the difference image of digits 7 compared to 9
 image(abs(average.7 - average.9)[,8:1])
@@ -70,6 +70,60 @@ image(abs(average.7 - average.9)[,8:1])
 
 As one can see from the above difference image, the most distinguishable differences between digits 7 and 9 lie within the lower triangular part of the image.
 
+
+### $$k$$-NN classifier
+
+One of the simplest classifiers is the [*$$k$$ Nearest Neighbour (k-NN) classifier*](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm). In R, an implementation of the k-NN classifier is available in package `class`.
+
+Usage of this classifier is very simple:
+
+```R
+require('class')
+
+# try with k = 1
+pred <- knn(traindata[,1:64], testdata[,1:64], traindata[,65], k=1)
+
+# compute the accuracy of this classifier
+mean(pred == testdata[,65])
+
+# generate the confusion matrix
+table(pred, testdata[,65])
+```
+
+#### With $$k$$=1
+
+For evaluating the performance of the classifier ($$k$$ set to 1), we rely on [*2-fold cross validation*](https://www.cs.cmu.edu/~schneide/tut5/node42.html), using the train-test split created by the dataset's authors. 
+The average performance of this classifier is of 97.9%. 
+
+![k-NN results](/img/posts/optdigits-knn-results1.png)
+
+The [*Confusion Matrix*](https://en.wikipedia.org/wiki/Confusion_matrix) allows us to look for pairwise confusion amongst the category labels (digits in this case). For example, we can see that this 
+classifier confuses three instances of real 9's as 8's. There's also an image of a 4 and another of a 1 that are also confused as an 8 (i.e., the classifier thinks they are an 8, while in actual fact they are a 4 and a 1 respectively). From this confusion matrix, one can also note that digits 0 are classified correctly with no errors (no *false positives* and/or *false negatives*).
+
+
+#### Finding best value of $$k$$
+
+What's the optimal value of $$k$$ for this dataset? Let's try out with various values of $$k$$ and then we compare classifier accuracy.
+
+```R
+res = matrix(nrow=100,1)
+for (k in 1:100)
+{
+	pred <- knn(traindata[,1:64], testdata[,1:64], traindata[,65], k)
+	res[k] <- mean(pred == testdata[,65])
+}
+
+# plot the accuracy
+plot(res, type='l', xlab='k', ylab='classifier accuracy', main='Accuracy vs. k for k-NN Classifier')
+```
+
+![k-NN results](/img/posts/optdigits-knn-results2.png)
+
+From the above graph, one can see that the best performing classifier is *1-NN*, the simplest nearest neighbour classifier.
+
+
+
+### SVM classifier
 
 
 ...WIP....
