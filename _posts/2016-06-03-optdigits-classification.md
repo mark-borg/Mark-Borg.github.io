@@ -125,6 +125,97 @@ From the above graph, one can see that the best performing classifier is *1-NN*,
 
 ### SVM classifier
 
+Our next experiment in classification will make use of the [*Support Vector Machine (SVM)*](https://en.wikipedia.org/wiki/Support_vector_machine). 
+We will use the [`e1071` package](ftp://cran.r-project.org/pub/R/web/packages/e1071/index.html) in R. This package provides an interface to the well-known [*libsvm* library](http://www.csie.ntu.edu.tw/~cjlin/libsvm/).
+
+
+```R
+trn <- data.matrix(traindata)
+tst <- data.matrix(testdata)
+
+require(e1071)
+```
+
+When we try running SVM on the given optdigits training data, the following error will occur:
+
+![SVM Error Message](/img/posts/optdigits-svm-error.png)
+
+This error occurs because columns 1 and 40 happen to be always 0 for all the given training images, as can be confirmed by running `summary()` on the 2 columns:
+
+![Zero columns](/img/posts/optdigits-svm-error-summary.png)
+
+We thus need to remove these 2 columns from the data used to train the SVM model. Note also how we cast the label column (the *target* column) to type `factor`. This is required in order 
+to indicate that the SVM is going to be used for *classification* purposes (Y values are categorical) and not for *regression*.
+
+```R
+ndx <- c(2:39, 41:64)	# we eliminate the all-zeros columns
+
+# train the SVM model
+svm.model <- svm(trn[,ndx], factor(trn[,65]))
+```
+
+Leaving the `svm()` call with its default parameters results in the following SVM model:
+
+![The SVM model](/img/posts/optdigits-svm-model.png)
+
+Now we run the SVM model on the test data in order to check the model's accuracy. 
+
+```R
+pred <- predict(svm.model, tst[,ndx])
+```
+
+This is quite straightforward, and we compute the accuracy as well as the confusion matrix:
+
+![SVM accuracy](/img/posts/optdigits-svm-accuracy.png)
+
+
+
+#### Tuning the SVM
+
+We can see that the performance of the SVM classifier is worse than that of the Nearest Neighbour classifier (0.968 against 0.980). A question we can ask is the following: can we tune the SVM's parameters
+in order to improve the classification accuracy? `cost` and `gamma` are the parameters of the *non-linear SVM* with a [*Gaussian radial basis function*](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) kernel. 
+
+A standard SVM seeks to find a margin that separates the different classes of objects. However, this can lead to poorly-fit models in the presence of errors and for classes that are not that easily separable. 
+To account for this, the idea of a *soft margin* is used, in order to allow some of the data to be "ignored" or placed on the wrong side of the margin. 
+Parameter `cost` controls this: a small cost value makes the cost of misclassification low (*soft margin*) and more points are ignored or allowed to be on the wrong side of the margin, while a large value makes the cost of misclassification high (*hard margin*) and the SVM is stricter when classifying the points which can potentially lead to *over-fitting*.
+
+Parameter `gamma` is a free parameter of the radial basis function.  
+
+To find the optimal values for parameters `cost` and `gamma`, we use the `tune()` method. This employs a *grid search technique* to locate the optimal parameter values and uses 10-fold cross validation in the process.
+This method can be quite time-consuming. In machine learning this process of 'tuning' a classifier via finding the best parameter values is called [*hyperparameter optimisation*](https://en.wikipedia.org/wiki/Hyperparameter_optimization).
+
+```R
+tune.result <- tune(svm, train.x = rbind(trn[,1:64], tst[,1:64]), train.y = factor(c(trn[,65], tst[,65])), ranges = list(gamma = c(0.006, 0.008, 0.010, 0.012, 0.014), cost = c(3.25,3.5,3.75,4,4.25,4.5,4.75))
+print(tune.result)
+```
+
+![SVM hyperparameter tuning](/img/posts/optdigits-svm-tuning.png)
+
+```R
+plot(tune.result)
+```
+
+![SVM hyperparameter plot](/img/posts/optdigits-svm-tuning-plot2.png)
+
+We can continue re-tuning and zooming further into the hyperparameter space until we reach a good level of accuracy.
+
+![SVM hyperparameter plot](/img/posts/optdigits-svm-tuning-plot3.png)
+
+![SVM hyperparameter tuning](/img/posts/optdigits-svm-tuning2.png)
+
+
+```R
+svm.model <- svm(trn[,ndx], factor(trn[,65]), gamma=0.011, cost=4.7)
+pred <- predict(model, tst[,ndx])
+
+mean(pred == tst[,ndx])
+table(pred, tst[,ndx])
+```
+
+![SVM accuracy](/img/posts/optdigits-svm-accuracy2.png)
+
+The final accuracy of the SVM classifier is still worse than that of the nearest neighbour (0.974 against 0.980), but *hyperparameter tuning* has gone a long way in improving the results of the SVM classifier (0.974 against 0.968).
+
 
 ...WIP....
 
