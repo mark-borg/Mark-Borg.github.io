@@ -13,13 +13,24 @@ various machine learning classification techniques.
 
 {{ more }}
 
+
+### Table of Contents
+{:.no_toc}
+
+* Table of Contents Placeholder
+{:toc}
+
+
+
 ### Introducing the dataset
 
 ![optdigits sample digits](/img/posts/optdigits.png)
 
 In the raw Optdigits data, digits are represented as 32x32 matrices where each pixel is binarised -- 1 or 0. They are also available in a pre-processed form in which 
 digits have been divided into non-overlapping blocks of 4x4 pixels and the number of active pixels in each block have been counted. This process gives 8x8 matrices,
-where each element is an integer in the range 0..16. Here we use these pixel totals contained in the 8x8 matrices for our experimentation.
+where each element is an integer in the range 0..16. Here we use these pixel totals contained in the 8x8 matrices for our experimentation. Thus the dataset
+contains one image per row, with 64 columns representing the pixel totals of each of the 8x8 blocks, and the 65th row containg the *target label* of that image (i.e., 
+the actual value of the handwritten number).
 
 First we load the training and the test datasets in R:
 
@@ -215,6 +226,164 @@ table(pred, tst[,ndx])
 ![SVM accuracy](/img/posts/optdigits-svm-accuracy2.png)
 
 The final accuracy of the SVM classifier is still worse than that of the nearest neighbour (0.974 against 0.980), but *hyperparameter tuning* has gone a long way in improving the results of the SVM classifier (0.974 against 0.968).
+
+
+### Self-Organising Map (SOM)
+
+The next classifier we tried is the [*Self-Organising Map (SOM)*](https://en.wikipedia.org/wiki/Self-organizing_map). This is a special type of a neural network that makes use of unsupervised learning in order to 
+generate a low-dimensional (2D in our case) representation of the data. This low-dimensional representation is called a *map*. SOMs are also known as *Kohonen networks*.
+
+Here we make use of two R packages called [`Rsomoclu`](https://cran.r-project.org/web/packages/Rsomoclu/index.html) and [`Kohonen`](https://cran.r-project.org/web/packages/kohonen/index.html). Package `Rsomoclu` provides
+an R interface to the library [`Somoclu`](https://pdfs.semanticscholar.org/aa00/6437a99294f193a36d34af4e144514393043.pdf).
+
+```R
+require(Rsomoclu)
+require(kohonen)
+
+trn <- data.matrix(traindata)
+tst <- data.matrix(testdata)
+```
+
+There are several SOM parameters that need to be configured before we can generate the map. For many of them, the default values can be used. The first two parameters `nSomX` and `nSomY` define the size of the 2-dimensional map.
+
+```R
+nSomX <- 100
+nSomY <- 100
+nEpoch <- 10
+radius0 <- 0
+radiusN <- 0
+radiusCooling <- "linear"
+scale0 <- 0
+scaleN <- 0.01
+scaleCooling <- "linear"
+kernelType <- 0
+mapType <- "planar"
+gridType <- "rectangular"
+compactSupport <- FALSE
+codebook <- NULL
+neighborhood <- "gaussian"
+```
+
+Training and generatin the SOM can then be done via the following code:
+
+```R
+som.res <- Rsomoclu.train(trn[,1:64], nEpoch, nSomX, nSomY,  radius0, radiusN,  radiusCooling, scale0, scaleN,  scaleCooling,  kernelType, mapType, gridType, compactSupport, neighborhood, codebook)
+
+som.map = Rsomoclu.kohonen(trn[,1:64], som.res)
+```
+
+An important thing to note is that we do not pass the target labels as input to the SOM - remember that SOM uses an [*unsupervised learning*](http://machinelearningmastery.com/supervised-and-unsupervised-machine-learning-algorithms/) method.
+
+
+#### SOM Visualisations
+
+SOMs in R come with a number of plotting options to help in visualising the map as well as checking its quality.
+
+Let's first take a look to see how the ten clusters of hadwritten digits have been organised by the SOM. We are going to use the known labels of the training images and see where they fall in the 2D map. We will
+use colour coding to help in the visualisation of the clustering. The following code does this:
+
+```R
+require(RColorBrewer)
+
+col.ind <- trn[,65] + 1
+cols <- brewer.pal(10, "Paired")
+cols[1] <- 'lightskyblue3'
+cols[9] <- 'thistle4'
+
+plot(som.map, type="mapping", labels=trn[,65], col=cols[col.ind], font=2, cex=1.5)
+```
+
+[![SOM Map Clusters](/img/posts/som-map-clusters-small.png)](/img/posts/som-map-clusters.png)
+
+Note how the SOM has managed to cluster the digits quite well, keeping in mind that we have not supplied the target labels of the images; we only supplied the 64 pixel counts for the 8x8 blocks.
+
+*Heatmaps* are perhaps the most important visualisation element of SOMs. A SOM heatmap allows the visualisation of the distribution of a single variable (single feature) across the map. For example, imagine we want to check
+how much the 36th column (i.e. the pixel counts of the 36th block) helps to discriminate the various clusters we have:
+
+```R
+plot(som.map, type = "property", property = som.map$codes[,36],  main = colnames(trn)[36])
+```
+
+![SOM Map V36](/img/posts/som-map-v36.png)
+
+When we compare the above heatmap with the clusters mapping plot, we can see that the pixel totals of the 36th column are low for roughly digits 0's and 9's, while high for digits 1's, 7's and 8's. The contours in the heatmap
+do not map well with the digit clusters. But remember that this is just the heatmap of one column -- when an SOM clusters the input it takes into consideration all of the input data (all the 64 dimensions in this case).
+And perhaps column 36 is not such a good discriminator on its own. Some more examples of heatmaps are shown below:
+
+[![SOM Map V36](/img/posts/som-map-v37.png){: width="290px"}](/img/posts/som-map-v37.png)
+[![SOM Map V36](/img/posts/som-map-v38.png){: width="290px"}](/img/posts/som-map-v38.png)
+
+
+The SOM library in R also provides other visualisations that can help with checking the quality of the generated map. For example, a *neighbour distance plot* (also known as the *U matrix*), and a plot of how many of the input images are mapped to each node on the map. Please check the package [manual](https://cran.r-project.org/web/packages/kohonen/kohonen.pdf) for more details.
+
+
+#### Performance
+
+Using the SOM for classification purposes can be done as shown here:
+
+```R
+som.prediction <- predict(som.map, newdata=tst[,1:64], trainY=factor(trn[,65]))
+
+mean(som.prediction$prediction == tst[,65])
+```
+
+With a 100x100 SOM, we obtained an accuracy of $$0.94769$$.
+
+
+In order to find the best size of the map, we evaluated a range of map sizes using the following code. We have restricted ourselves to square-sized SOMs here:
+
+```R
+score = matrix(nrow=100,1)
+for (s in seq(4,100,2))
+{
+   nSomX <- s
+   nSomY <- s
+   print(s)
+ 
+   res <- Rsomoclu.train(trn[,1:64], nEpoch, nSomX, nSomY,  radius0, radiusN,  radiusCooling, scale0, scaleN,  scaleCooling,  kernelType, mapType, gridType, compactSupport, neighborhood, codebook)
+ 
+   som.map = Rsomoclu.kohonen(trn[,1:64], res)
+   som.prediction <- predict(som.map, newdata=tst[,1:64], trainY=factor(trn[,65]))
+   score[s] <- mean(som.prediction$prediction == tst[,65])
+   print(score[s])
+}
+```
+
+![SOM Size plot](/img/posts/som-size-plot.png){: width="500px"}
+
+The best accuracy of $$0.9482471$$ is obtained for a SOM size of $$70$$x$$70$$. 
+
+
+We then performed another test to see what is the best value for the `epoch` parameter. Trying out with a range of epoch values varying from 10 to 150, we found out that the best result is obtained at
+`epoch` = $$50$$. With this epoch value, classification accuracy reaches $$0.96272$$.
+
+![SOM results at optimal Epoch value](/img/posts/som-results-epoch.png)
+
+And the resulting map is given below. Please note that the map changes on each and every run. 
+
+[![SOM Map Clusters](/img/posts/som-map-clusters-small2.png)](/img/posts/som-map-clusters2.png)
+
+
+#### From a training image to its SOM location
+
+Before we leave the topic on SOMs, you might ask: is it possible to determine where on the map a particular image falls? Yes, we can do that.
+
+The generated som has an element called `unit.classif` (accessible via `som.map$unit.classif`) that gives the number of the SOM node to which the training image belongs to.
+For example, checking the first training image (first row in `traindata`), 
+
+```R
+(unit.num <- som.map$unit.classif[1])
+```
+
+we find out that this image is mapped to SOM node 2120. We reach the 2120'th node, by starting from bottom-left corner of the map and moving in a row-order fashion. The following
+code changes from node number to x,y coordinates (origin is at the bottom-left corner):
+
+```R
+coord <- c(unit.num %% nSomX, unit.num %/% nSomX)
+```
+
+That's all on SOMs.
+
 
 
 ...WIP....
