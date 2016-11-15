@@ -183,7 +183,7 @@ This is quite straightforward, and we compute the accuracy as well as the confus
 
 #### Tuning the SVM
 
-We can see that the performance of the SVM classifier is worse than that of the Nearest Neighbour classifier (0.968 against 0.980). A question we can ask is the following: can we tune the SVM's parameters
+We can see that the performance of the SVM classifier is worse than that of the Nearest Neighbour classifier ($$0.968$$ against $$0.980$$). A question we can ask is the following: can we tune the SVM's parameters
 in order to improve the classification accuracy? `cost` and `gamma` are the parameters of the *non-linear SVM* with a [*Gaussian radial basis function*](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) kernel. 
 
 A standard SVM seeks to find a margin that separates the different classes of objects. However, this can lead to poorly-fit models in the presence of errors and for classes that are not that easily separable. 
@@ -225,7 +225,7 @@ table(pred, tst[,ndx])
 
 ![SVM accuracy](/img/posts/optdigits-svm-accuracy2.png)
 
-The final accuracy of the SVM classifier is still worse than that of the nearest neighbour (0.974 against 0.980), but *hyperparameter tuning* has gone a long way in improving the results of the SVM classifier (0.974 against 0.968).
+The final accuracy of the SVM classifier is still worse than that of the nearest neighbour ($$0.974$$ against $$0.980$$), but *hyperparameter tuning* has gone a long way in improving the results of the SVM classifier ($$0.974$$ against $$0.968$$).
 
 
 ### Self-Organising Map (SOM)
@@ -359,7 +359,8 @@ We then performed another test to see what is the best value for the `epoch` par
 
 ![SOM results at optimal Epoch value](/img/posts/som-results-epoch.png)
 
-And the resulting map is given below. Please note that the map changes on each and every run. 
+And the resulting map is given below (click on the image for a larger version). Please note that the map changes on each and every run, since SOMs are non-deterministic, but the same
+accuracy is obtained for different runs with the same configuration parameters.
 
 [![SOM Map Clusters](/img/posts/som-map-clusters-small2.png)](/img/posts/som-map-clusters2.png)
 
@@ -382,10 +383,237 @@ code changes from node number to x,y coordinates (origin is at the bottom-left c
 coord <- c(unit.num %% nSomX, unit.num %/% nSomX)
 ```
 
-That's all on SOMs.
+That's all on SOMs for now.
+
+
+### Artificial Neural Networks
+
+The next classifier that I tried is the venerable artificial neural network (*ANN* for short).
+We will be using the R package [`neuralnet`](https://cran.r-project.org/web/packages/neuralnet/index.html).
+
+For this classifier, I opted for having 10 output nodes, one for each of the 10 handwritten digits. As a result, the dataset needs to be modified
+slightly to cater for this. The following code adds 10 extra columns at the end, one column per digit, and named 'zero', 'one', 'two', up to column 'nine'.
+Each column takes a value of 0 or 1 depending on whether that row (that image) is of that particular digit or not.
+
+```R
+traindata <- read.table("optdigits.tra", sep=",")
+testdata <- read.table("optdigits.tes", sep=",")
+
+for (k in 0:9)
+{
+    traindata <- cbind(traindata, (traindata$V65 == as.character(k)) + 0)
+    testdata <- cbind(testdata, (testdata$V65 == as.character(k)) + 0)
+}
+
+names(traindata)[66:75] <- c('zero','one','two','three','four','five','six','seven','eight','nine')
+names(testdata)[66:75] <- c('zero','one','two','three','four','five','six','seven','eight','nine')
+```
+
+For the network topology, we are using a 3-layer feed-forward network, consisting of an input layer of 64 nodes (the pixel totals for all the 8x8 blocks), a hidden layer of 70 nodes, and an
+output layer of 10 nodes (one per handwritten digit).
+
+#### Model formulae
+
+When it comes to specifying the statistical model of a machine learning algorithm, R provides a convenient syntax for specifying the model in terms of *model formulae*. 
+Here our model for the neural network consists of 64 *input variables* (input columns) and 10 *output variables* (output columns). The input variables are known as the *predictor variables*. 
+And the output variables are known as the *target variables*,
+because these are the variables that the neural network is trying to learn to predict their values. Another way of seeing this is the following: the neural network is trying to learn/find a
+mapping from the input variables to the target variables -- this is the essence of *supervised learning*.
+
+R's *model formula* is a syntactic way of representing the statistical model of a machine learning algorithm. It is written as follows; with the target variable(s) on the left hand side, and
+the input variables on the left hand side, separated by the tilde operator `~`.
+
+```
+		target variable(s)  ~  input variables(s)
+```
+
+Note that a [*model formula*](https://cran.r-project.org/doc/manuals/R-intro.html#Statistical-models-in-R) is a symbolic expression, defining the relationships between variables (a prediction relationship), rather than it being an arithmetic expression.
+
+For our neural network, we could use the following model formula:
+
+```R
+zero + one + two + three + four + five + six + seven + eight + nine ~ . - V65
+```
+
+We have the names of the ten target variables on the left-hand side. The `+` operator signifies the inclusion of an additional variable. 
+And as input on the right-hand side, we use the shortcut symbol `.`, which means include all variables not already mentioned in the formula (i.e. all variables 
+except for 'zero', 'one', up to 'nine').
+But keep in mind that in our dataset we have an extra 65th column (named V65) that has the label of the handwritten digit. We have to remove this column from the input to the neural network, 
+and we do this by adding `- V65` in the model formula, `-` signifying the exclusion of a variable.
+
+This is the way we should specify the model for the neural network. 
+But unfortunately, the current implementation of `neuralnet` has a [known bug](http://stackoverflow.com/questions/17794575/error-in-terms-formulaformula-in-formula-and-no-data-argument) in it. 
+When it encounters the symbol `.` in a model formula, it gives an error:
+
+![Model Formula Bug](/img/posts/optdigits-nn-bug.png)
+
+So we either have to specify it in full (listing all 64 input variables), or else specify it programmatically:
+
+```R
+formula <- paste(paste(names(traindata)[66:75], collapse=' + '), '~', paste(names(traindata)[1:64], collapse=' + '))
+```
+
+Note that R provides a way to extract the model formula from a machine learning algorithm. We can use this `as.formula()` to verify
+that the formula we created programmatically is correct (in this case `nn` is the neural network object):
+
+![Model Formula](/img/posts/optdigits-nn-formula.png)
+
+
+#### Training the Neural Networks
+
+Training the neural network is done as follows:
+
+```R
+nn <- neuralnet(formula, data=traindata, hidden=70, lifesign = "full", stepmax=3e5, thresh=0.043)
+```
+
+Here we set the error difference threshold to $$0.043$$. This means that the neural network
+will continue iterating and trying to find the best solution (i.e the ideal synaptic weights) till it reaches a point where the overall error 
+of the model is not reducing by more than the given threshold value. In our case, if change in error at a given step of iteration is less than $$4.3\%$$, the neural network will stop further optimization.
+
+This neural network took quite some time to train, running for more than an hour.
+The good news is that you can train a neural network in stages (with saving to disk in-between stages).
+To do this, you can use the same method, with the addition that you pass to the method the weights from the previous training run:
+
+```R
+# first training run
+nn <- neuralnet(formula, data=traindata, ...) 
+
+# second training run
+nn <- neuralnet(formula, data=traindata, ..., startweights = nn$weights)
+```
+
+
+#### Performance
+
+The figure below shows a plot of the neural network that we have trained.
+ 
+```R
+plot(nn)
+```
+
+[![The Neural Network](/img/posts/optdigits-nn.png)](/assets/nn.pdf)
+
+Since the neural network is quite large, the figure is very crowded and it's hard to see the synaptic weights joining
+different nodes. It's possible to customise the display of a neural network, for examply varying the width of the
+node connections to indicate weight strength -- for more on this, please see [this site](https://beckmw.wordpress.com/2013/03/04/visualizing-neural-networks-from-the-nnet-package/).
+
+
+Let's now use the trained neural network `nn` to classify the test images. We'll use the `compute()` method for this.
+
+```R
+res <- compute(nn, testdata[,1:64])               # res$net.result will contain the output from all 10 output nodes of the neural network
+pred <- apply(res$net.result, 1, which.max) -1    # for each test image, we find that output node which has the highest value and take this as the predicted output
+```
+
+`res$net.result` contains results from the 10 output nodes constituting the output layer of the neural network. We then apply `which.max()` on each row (each test image)
+to find the output neuron with highest value. We take this as the predicted output of the neural network. We have to do `-1` because indices in R start at 1, while our
+handwritten digits start with zero.
+
+We then compute the overall accuracy and the confusion matrix for the neural network classifier:
+
+```R
+table(pred, testdata[,65])
+mean(pred == testdata[,65])
+```
+
+![Neural Network results](/img/posts/optdigits-nn-accuracy.png)
+
+Neural networks are the worst performing amongst the classifiers we tried. Although to be fair, we have not tried doing any parameter tuning and/or topology
+optimisation. One reason for not doing this is the long time needed for training neural networks. 
+
+
+### Random Forests
+
+One final classifier that I am going to try in this post is [*Random Forests*](https://en.wikipedia.org/wiki/Random_forest).
+
+![Random Forests](/img/posts/random-forests.png){: width="590px" height="350px"}
+Src: [http://inspirehep.net/record/1335130/plots](http://inspirehep.net/record/1335130/plots)
+
+Here we are going to use the R package [`randomForest`](https://cran.r-project.org/web/packages/randomForest/index.html).
+Learning a random forest is quite straightforward:
+
+```R
+require(randomForest)
+
+rf <- randomForest(trn[,1:64], factor(trn[,65]), tst[,1:64], factor(tst[,65]), ntree=500, proximity=TRUE, importance=TRUE, keep.forest=TRUE, do.trace=TRUE)          
+```
+
+We pass both the training and test folds of the dataset to `randomForest()`. It is important to note that we explicitly state that the target variables (the 65th columns) are 
+of type `factor` -- without this, the random forest will default its execution mode to *regression* instead of *classification*.  For the number of trees, we use the default value of
+500 trees. 
+
+One of the main advantages of random forests is that they are very fast to train, while at the same time being powerful classifiers. A Random Forest is known as an [*ensemble* method](https://en.wikipedia.org/wiki/Ensemble_learning) --
+it is a learning algorithm that constructs a set of classifiers (*Decision Trees* in this case) and then determines a final classification result by aggregating (summing up) the classification results
+of the individual classifiers. Methods of aggregation could include: taking a weighted vote, majority voting, etc.
+More information about the random forest implementation we are using can be found [here](http://www.bios.unc.edu/~dzeng/BIOS740/randomforest.pdf).
+
+Calling print on the random forest object `rf` provides some information about this ensemble method as well as confusion matrices. (Remember that we are passing the test dataset as input).
+
+![Random Forest print](/img/posts/randomforest-print.png)
+
+The first confusion matrix is for the training dataset, while second one is that of the test dataset and the one that is of interest to us.
+
+Using the random forest `rf` for classification purposes is straightforward and the accuracy obtained is of $$0.97218$$.
+
+```R
+pred <- predict(rf, tst[,1:64])
+mean(pred == tst[,65])
+
+plot(rf)
+```
+
+[![Random Forest error plot](/img/posts/randomforest-error.png)](/img/posts/randomforest-error.png)
+
+Note that we have not attempted doing any tuning of the random forest. Package `randomForest` has a method `tuneRF()` to assist in this process. This is something we can try in the future.
+
+
+#### Importance of input variables
+
+Analysing the workings of a Random Forest can yield several important insights on the problem in hand.
+
+For example a call to `importance(rf)` will return a set of importance measures for each of the input variables. And when we call `varImpPlot(rf)` we
+get a plot of the input variables ranked by their measure of importance:
+
+![Plot of input variables ranked by importance](/img/posts/randomforest-varimpplot.png)
+
+In the above plot we see the input variables ranked by two importance measures. The first measure is based on prediction accuracy averaged across all the trees making up the forest.
+The second measure is based on node impurity using the *Gini coefficient* -- more information on these measures can be found [here](https://en.wikipedia.org/wiki/Decision_tree_learning) and [here](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm). 
+
+We can see that 5 most important input variables (the 5 variables that help most in classifying handwritten digits) are the pixel totals given in columns: 22, 43, 20, 21, and 19. This can
+be very useful information as it will allow us to determine what features (input variables) are most relevant to our problem. Note also that many of the input columns are left out from the
+above plot -- these are variables that are not important for classification purposes; their presence provides little to none discriminating power to a classifier.
+
+
+#### A Tree for You
+
+The method `getTree` can be used to extract a given tree from the random forest `rf`. For example, in the code below, we are getting the 121st tree of the random forest.
+
+```R
+# get a tree from the random forest
+a.tree <- getTree(rf, 121, labelVar=TRUE)
+
+print(a.tree)
+```
+
+![A single tree](/img/posts/randomforest-single-tree.png)
+
+
+### Conclusion
+
+To conclude this rather long blog entry, the table below summarises the accuracy results obtained and highlights some important characteristics of the classification algoithms that I have experimentd with.
+
+| algorithm | accuracy | parameter tuning? | training speed | comments |
+|-----------|:--------:|:------:|:--------------:|:---------|
+| k-NN      | **97.997%** | yes | fast      | best result obtained for k=1 |
+| SVM       | **97.385%** | yes | fast      | used grid-search parameter tuning |
+| Random Forest | **97.218%** | no | fast | |
+| SOM       | **96.272%** | limited | fast  | unsupervised method |
+| Neural Network | **88.258%** | no | very slow | |
 
 
 
-...WIP....
+That's all folks!
+ 
 
 
