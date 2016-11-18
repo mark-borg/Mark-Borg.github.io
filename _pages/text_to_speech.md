@@ -42,9 +42,14 @@ in the Maltese language, we could then optimise the collection of these sounds (
 true frequency of occurence in spoken Maltese.
 
 I also contributed to the development of the rule engine for performing [**grapheme-to-phoneme translation**](http://www.voxforge.org/home/docs/faq/faq/what-is-g2p), i.e., converting written Maltese text to its sound representation (specified as a sequence
-of diphones). This is also referred to as **G2P** for short, or as *letter-to-sound conversion*.
+of diphones). This is also referred to as **G2P** for short, or as *letter-to-sound conversion*. 
 
-Unlike languages like English, G2P in Maltese is quite straightforward and can be done via a sequence of [*context-sensitive rewrite rules*](https://en.wikipedia.org/wiki/Context-sensitive_grammar). Thus there is no need for complex machine learning algorithms for G2P. But then Maltese is complex in other areas such as linguistic morphology and verb formation, when compared to languages like English.
+Unlike languages like English, G2P in Maltese is quite straightforward and can be done via a sequence of [*context-sensitive re-write rules*](https://en.wikipedia.org/wiki/Context-sensitive_grammar). 
+
+$$f_i: xGy \rightarrow xPy \; | \; \text{<conditions>} \qquad G \in \{ \text{graphemes} \}, P \in \{ \text{phonemes} \}$$
+
+Thus there is no need for complex machine learning algorithms for G2P. But then the Maltese language exhibits complexity in other areas such as linguistic morphology and verb formation, when compared to languages like English.
+The context-sensitive re-write rules used for performing G2P in Maltese can be found [here](/assets/maltese-g2p-rules.pdf).
 
 [![Maltese TTS frontend](/img/projects/maltese-tts-frontend.png)](/img/projects/maltese-tts-frontend.png)
 
@@ -137,4 +142,18 @@ A simple analysis was performed to get an idea of how much diphone statistics ca
 &nbsp;
 
 More in-depth information about the data cleaning and statistical analysis process can be found in [this document](\assets\Maltese-diphone-statistical-analysis.pdf)
+
+More detail on the general architecture of the speech synthesis engine can be found in [this paper](/assets/soundbite.pdf).
+
+In addition to the engine and the mobile apps, a number of internal support tools were developed to help in the process of *data preparation*. Apart from support tools
+to create the *lexicon* (the dictionary of words with their related feature data such as part-of-speech, phonetic representation, syllabification, etc.), a number of other
+audio support tools were developed for cutting & preparing the diphones to be used by the engine. 
+
+Many thousands of diphones (over 100,000) had to be manually selected from the 
+voice actor recordings and cut out and refined for use. This was a laborious & tedious process. Thus the use of tools to support & facilitate this manual process was quite important.
+Some screenshots of these tools are shown below:
+
+[![Support tools for the lexicon](/img/projects/tts-tools-lexicon.png)](/img/projects/tts-tools-lexicon.png)
+
+[![Support tools for diphone cutting](/img/projects/tts-tools-diphones.png)](/img/projects/tts-tools-diphones.png)
 
