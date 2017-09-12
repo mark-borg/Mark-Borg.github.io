@@ -44,7 +44,7 @@ D. Thirde, M. Borg, J. Aguilera, H. Wildenauer, J. M. Ferryman, and M. Kampel <b
 
 
 F. Fusier, V. Valentin, F. Bremond, M. Thonnat, M. Borg, D. Thirde, and J. M. Ferryman <br />
-**Video Understanding for Complex Activity Rsecognition** <br />
+**Video Understanding for Complex Activity Recognition** <br />
 *Journal of Machine Vision and Applications, Vol.18, No.3, pp.167--188, Springer-Verlag, 2007.* <br />
 [PDF](/papers/MVA2007.pdf), [DOI](http://dx.doi.org/10.1007/s00138-006-0054-y), [BibTex](/papers/MVA2007.bib)
 
