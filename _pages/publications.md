@@ -12,8 +12,9 @@ title:     Publications
 
 M. Borg, and K. P. Camilleri <br />
 **Towards a Transcription System of Sign Language Video Resources via Motion Trajectory Factorisation** <br />
-*Proceedings of the 2017 ACM Symposium on Document Engineering (DocEng'17)* <br /> **Awarded Best Paper Award!** <br />
-[URL](http://doi.acm.org/10.1145/3103010.3103020), [PDF](http://dl.acm.org/ft_gateway.cfm?id=3103020&ftid=1902572&dwn=1&CFID=983718100&CFTOKEN=86045509), [DOI](https://doi.org/10.1145/3103010.3103020), [BibText](/papers/DocEng2017.bib)
+*Proceedings of the 2017 ACM Symposium on Document Engineering (DocEng'17)* <br /> 
+**Awarded Best Paper Award!** <br />
+[URL](http://doi.acm.org/10.1145/3103010.3103020), [PDF](http://dl.acm.org/ft_gateway.cfm?id=3103020&ftid=1902572&dwn=1&CFID=983718100&CFTOKEN=86045509), [DOI](https://doi.org/10.1145/3103010.3103020), [BibText](/papers/DocEng2017.bib), [Slides](/papers/DocEng2017_presentation.pdf)
 
 <br />
 
