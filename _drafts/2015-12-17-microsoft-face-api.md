@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Evaluating Microsoft Face API
-tags:   
+tags:   computer vision, face recognition, machine learning
+author: Mark Borg
 image:  placeholder.png
 ---
 

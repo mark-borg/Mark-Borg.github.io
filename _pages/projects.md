@@ -2,6 +2,7 @@
 permalink: /projects/
 layout:    default
 title:     Projects
+author: Mark Borg
 ---
 
 # Projects

@@ -2,7 +2,8 @@
 permalink: /projects/text_to_speech
 layout: default
 title:  Maltese Text-to-Speech
-tags:   
+tags:   text to speech, speech synthesis, G2P, data analysis, diphones, text corpus, text analysis
+author: Mark Borg
 image:  text-to-speech.png
 ---
 

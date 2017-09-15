@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Working with Geospatial data in R
-tags:   GPS, GPX
+tags:   GPS, GPX, R, data analysis
+author: Mark Borg
 image:  placeholder.png
 ---
 

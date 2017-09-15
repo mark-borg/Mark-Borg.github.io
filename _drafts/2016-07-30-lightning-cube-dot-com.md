@@ -2,6 +2,7 @@
 layout: post
 title:  End of an era - Lightning Cube website
 tags:   
+author: Mark Borg
 image:  placeholder.png
 ---
 

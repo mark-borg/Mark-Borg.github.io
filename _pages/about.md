@@ -2,6 +2,7 @@
 permalink: /about/
 layout:    default
 title:     Mark Borg
+author:    Mark Borg
 nobio:     true
 ---
 

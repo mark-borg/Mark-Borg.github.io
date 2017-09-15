@@ -2,6 +2,7 @@
 layout: post
 title:  Big Data Summit Malta
 tags:   
+author: Mark Borg
 image:  summit.png
 ---
 

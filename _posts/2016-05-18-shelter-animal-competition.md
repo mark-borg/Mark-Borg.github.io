@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Kaggle Shelter Animal Outcome Competition
-tags:   blogging
+tags:   R, machine learning, data analysis, data science
+author: Mark Borg
 image:  shelter-animal.png
 ---
 

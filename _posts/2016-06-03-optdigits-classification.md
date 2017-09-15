@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Experiments in Optdigits Classification
-tags:   
+tags:   R, machine learning, data analysis, data science
+author: Mark Borg
 image:  optdigits-classification.png
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  Machine Learning in eCommerce - some throughts
+title:  Machine Learning in eCommerce - some thoughts
 tags:   
+author: Mark Borg
 image:  placeholder.png
 ---
 

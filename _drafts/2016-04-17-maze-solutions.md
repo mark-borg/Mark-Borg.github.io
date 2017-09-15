@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Maze Solutions in R
-tags:   
+tags:   R, maze solving, graph traversal
+author: Mark Borg
 image:  placeholder.png
 ---
 

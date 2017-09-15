@@ -2,6 +2,7 @@
 layout: post
 title:  Sentiment Analysis applied to the Maltese language
 tags:   
+author: Mark Borg
 image:  placeholder.png
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Barcode Recognition
-tags:   blogging
+tags:   barcodes, barcode recognition
+author: Mark Borg
 image:  barcode-reader.png
 ---
 

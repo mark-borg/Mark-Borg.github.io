@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Predicting Customer Satisfaction
-tags:   blogging
+tags:   R, machine learning, data analysis, data science
+author: Mark Borg
 image:  santander.png
 ---
 

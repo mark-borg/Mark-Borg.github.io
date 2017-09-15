@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Solving River-Crossing Puzzles with R
-tags:   
+tags:   R, river crossing puzzles
+author: Mark Borg
 image:  river-crossing-puzzles.png
 ---
 

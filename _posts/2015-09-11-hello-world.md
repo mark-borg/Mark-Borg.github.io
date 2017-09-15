@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  Hello World!
-tags:   blogging
+tags:   R
+author: Mark Borg
 image:  hello-world.png
 ---
 

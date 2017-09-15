@@ -2,6 +2,7 @@
 permalink: /publications/
 layout:    default
 title:     Publications
+author: Mark Borg
 ---
 
 # Publications

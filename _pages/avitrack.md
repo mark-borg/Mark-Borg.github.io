@@ -2,7 +2,8 @@
 permalink: /projects/avitrack
 layout: default
 title:  AVITRACK
-tags:   
+tags:   computer vision, AVITRACK, EU project
+author: Mark Borg
 image:  avitrack.png
 ---
 

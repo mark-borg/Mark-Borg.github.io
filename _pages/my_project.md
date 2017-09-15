@@ -3,6 +3,7 @@ permalink: /projects/my_project
 layout: default
 title:  My Project
 tags:   
+author: Mark Borg
 image:  placeholder.png
 ---
 

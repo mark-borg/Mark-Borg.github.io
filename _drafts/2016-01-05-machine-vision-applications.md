@@ -2,6 +2,7 @@
 layout: post
 title:  Barcode Reader & other Machine Vision applications
 tags:   SOMs
+author: Mark Borg
 image:  placeholder.png
 ---
 

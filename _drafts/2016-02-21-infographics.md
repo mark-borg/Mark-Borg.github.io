@@ -2,6 +2,7 @@
 layout: post
 title:  Infographics
 tags:   SOMs
+author: Mark Borg
 image:  placeholder.png
 ---
 
