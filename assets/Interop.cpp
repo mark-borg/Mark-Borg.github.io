@@ -213,6 +213,10 @@ void Interop::encodeParameterList(const KeyValueList& kvps, char**& outputParams
 	// CoTaskMemAlloc must be used instead of new operator since code on managed side will call Marshal.FreeCoTaskMem to free this memory
 	char** ptr = (char**)CoTaskMemAlloc(sizeof(char*)* kvps.size());
 
+	// out of memory?
+	if (ptr == NULL)		
+		throw std::exception("Error allocating memory via CoTaskMemAlloc()");
+
 	// populate the output array
 	int ndx = -1;
 	for (auto& kvp : kvps)
@@ -220,6 +224,11 @@ void Interop::encodeParameterList(const KeyValueList& kvps, char**& outputParams
 		std::string str = serialise(kvp);
 		size_t len = str.length();
 		ptr[++ndx] = (char*)CoTaskMemAlloc(sizeof(char)* (len + 1));
+
+		// out of memory?
+		if (ptr[ndx] == NULL)
+			throw std::exception("Error allocating memory via CoTaskMemAlloc()");
+
 		::ZeroMemory(ptr[ndx], sizeof(char)* (len + 1));
 #ifdef _WIN32
 		strncpy_s(ptr[ndx], len + 1, str.c_str(), len);
