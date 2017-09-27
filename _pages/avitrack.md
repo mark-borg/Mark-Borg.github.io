@@ -2,7 +2,12 @@
 permalink: /projects/avitrack
 layout: default
 title:  AVITRACK
-tags:   computer vision, AVITRACK, EU project
+tags:   
+  - computer vision
+  - AVITRACK
+  - EU project
+  - airport apron
+  - visual surveillance
 author: Mark Borg
 image:  avitrack.png
 ---

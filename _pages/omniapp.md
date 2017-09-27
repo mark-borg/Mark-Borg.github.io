@@ -2,7 +2,10 @@
 permalink: /projects/omniapp
 layout: default
 title:  OmniApp - Omnidirectional Visual Surveillance
-tags:   computer vision, omnidirectional camera, visual surveillance
+tags:   
+  - computer vision
+  - omnidirectional camera
+  - visual surveillance
 author: Mark Borg
 image:  omnidirectional.png
 ---

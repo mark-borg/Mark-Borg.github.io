@@ -1,7 +1,9 @@
 ---
 layout: post
 title:  Introductory Video on Search Spaces
-tags:   AI, search spaces
+tags:   
+  - AI
+  - search spaces
 author: Mark Borg
 image:  search-space-video.png
 ---

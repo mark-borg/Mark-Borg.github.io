@@ -1,7 +1,10 @@
 ---
 layout: post
 title:  Visualising PV output with 3D Surface Plots
-tags:   R, data analysis, data science
+tags:   
+  - R
+  - data analysis
+  - data science
 author: Mark Borg
 image:  pv-output.png
 ---

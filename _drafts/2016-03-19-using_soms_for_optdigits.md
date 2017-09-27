@@ -1,7 +1,11 @@
 ---
 layout: post
 title:  Using SOMs - experimentation with the optdigits dataset
-tags:   SOM, R, machine learning, data science
+tags:   
+  - SOM
+  - R
+  - machine learning
+  - data science
 author: Mark Borg
 image:  placeholder.png
 ---

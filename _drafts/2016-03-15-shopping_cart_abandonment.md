@@ -1,7 +1,10 @@
 ---
 layout: post
 title:  Shopping Cart Abandonment - initial research and ideas
-tags:   data science, data analysis, churn
+tags:   
+  - data science
+  - data analysis
+  - churn
 author: Mark Borg
 image:  placeholder.png
 ---

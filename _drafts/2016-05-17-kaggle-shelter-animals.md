@@ -1,7 +1,12 @@
 ---
 layout: post
 title:  Kaggle Competition Shelter Animal Outcomes - Experimenting with SOMs
-tags:   SOMs, R, data analysis, machine learning, data science
+tags:   
+  - SOMs
+  - R
+  - data analysis
+  - machine learning
+  - data science
 author: Mark Borg
 image:  placeholder.png
 ---

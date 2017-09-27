@@ -1,7 +1,9 @@
 ---
 layout: post
 title:  Dashcam Timelapse
-tags:   computer vision, data science
+tags:   
+  - computer vision
+  - data science
 author: Mark Borg
 image:  placeholder.png
 ---
