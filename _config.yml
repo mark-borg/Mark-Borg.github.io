@@ -15,3 +15,6 @@ excerpt_separator: "{{ more }}"
 markdown: 'kramdown'
 timezone: 'Europe/Malta'
 highlighter: 'rouge'
+
+plugins:
+  - jekyll-feed
