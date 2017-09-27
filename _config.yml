@@ -1,6 +1,7 @@
-name:   'Mark Borg'
+name:   'Mark Borg - my blog'
 url:    'https://mark-borg.github.io/'
 author: 'Mark Borg'
+description: 'A blog on computer vision, AI, machine learning, and data science'
 
 gems: [jekyll-paginate]
 
