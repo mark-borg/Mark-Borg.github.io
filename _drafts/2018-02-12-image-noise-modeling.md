@@ -45,7 +45,6 @@ The *R* code for doing this is given below. The pixel values are stored in matri
 Parameter `colour.channel` can be assigned one or more colour channels. If set to more than channel, e.g., `1:3`, then the average value of the selected colour channels will be used.
 
 ```R
-
 require(jpeg)
 
 video.path <- 'E:/VideoTestSequences/ECHO - Sign Language/NGT/Fables/NGT_AH_fab1/';
@@ -98,7 +97,7 @@ Focusing on the values of a specific pixel, since this pixel belongs to the stat
 
 The assumption is that this variation is Gaussian distributed with the mean of the distribution coinciding with the *true* value of the pixel. Many computer vision algorithms make this assumption and their workings rely on this assumption being true. 
 
-Now I will run a number of statistical tests, called **normality tests**, to check whether this assumption is true or not.
+Now we will run a number of statistical tests, called **normality tests**, to check whether this assumption is true or not.
 
 **Shapiro-Wilk** tests the *null hypothesis* ($$H_0$$) that the pixel values are drawn from a normally-distributed population. This is tested against the alternative hypothesis ($$H_1$$) is that the pixel values are NOT normally distributed.
 To keep the null hypothesis, the test statistic $$W$$ returned by the Shapiro-Wilk test must be close to 1 and the probability value $$p$$ must be above the chosen alpha value (0.05).
@@ -113,6 +112,74 @@ distribution with the computed mean and computed variance?
 Finally, the skewness and kurtosis measures are computed for the pixel values. 
 **Skewness** is a measure of symmetry, while **Kurtosis** is a measure of whether the pixel values are heavy-tailed or light-tailed relative to a normal distribution.
 Data with high kurtosis tend to have heavy tails, or outliers. Data with low kurtosis tend to have light tails, or lack of outliers. If the pixel data is normally distributed, then a skewness of 0 and a kurtosis of 3 is expected.
+
+
+```R
+run.shapiro <- function(d)
+{
+    res <- shapiro.test(d[1:min(1000,length(d))]);      # the Shapiro-Wilk test only works on a maximum of 5000 observations    
+    return(res)
+}
+
+
+plot_pixel_hist <- function(d, title='')
+{
+    # plot the histogram and fitted density
+    brk <- ((floor(min(d)*255)-5) : (floor(max(d)*255)+5)) / 255;
+    hist(d, probability=TRUE, breaks=brk, col='gray',
+         main=paste('histogram of pixel values', title), xlab='normalised pixel values',
+         sub='(blue: fitted density; red: Normal approximation)');
+    lines(density(d), col='blue', lwd=2);
+    
+    # approximate the data with a gaussian
+    dm <- mean(d);
+    ds <- sqrt(var(d));
+    dr <- seq(from=range(d)[1], to=range(d)[2], length=100);
+    lines(x=dr, y=dnorm(x=dr, mean=dm, sd=ds), col='red', lwd=2);    
+}
+
+
+analyse_pixel <- function(d)
+{
+    plot(d, pch=20, main='pixel values', xlab='frame #', ylab='normalised pixel value');
+    cat(' \n\n');
+    
+    plot_pixel_hist(d);
+    cat(' \n\n');
+    
+    qqnorm(d);
+    qqline(d, col='red');
+    cat(' \n\n');
+
+    bp <- boxplot(d, main='Box-plot with Five Number Statistics',
+                  sub='Open circles are outliers');
+
+    # remove the outliers identified by the boxplot
+    d2 <- d[d %in% setdiff(d, bp$out)];
+    
+    
+    # Shapiro-Wilk test
+    res <- run.shapiro(d);
+    print(res)
+    
+    
+    cat('skewness', skewness(d), '\n')
+    cat('kurtosis', kurtosis(d), '\n\n')
+
+
+    # Kolmogorov-Smirnov test
+    res <- ks.test(d, "pnorm", mean(d), sqrt(var(d)))
+    print(res);    
+}
+
+
+pixel.no <- floor(length(img)/2);   # use the centre pixel of the window as an example
+
+d <- pixel.data[,pixel.no];
+
+analyse_pixel(d)
+```
+
 
 The figure below shows a fitted density (the blue curve) to the pixel values and the corresponding normal distribution (red curve) with mean and variance estimated from the pixel values. 
 
@@ -132,13 +199,27 @@ The results of the normality tests are given in the table below:
 | Kurtosis | | $$3.720133$$ | $$\approx 3.0$$ |
 
 From the above results, it appears that the pixel data is NOT normally distributed. We have a rejection of the null hypothesis by both the Shapiro-Wilk test and the Kolmogorov-Smirnov test. In addition, we have some skewness and also kurtosis is not what one would expect for normally-distributed data. 
+
 The plot below shows a quantile-quantile (Q-Q) plot of the pixel data:
 
 ![Pixel value Q-Q plot](/img/posts/pixel_value_qqplot.png)
 
+A look at the above Q-Q plot shows a "staircase" pattern caused by the **quantisation** of pixel brightness. This particular pixel only exhibits 52 unique discrete values over 1000 observations (video frames). 
+The noise caused by quantizing the pixel values to a range of discrete levels is known as **quantization noise**.
+We also observe some deviations in the tails of the distribution.
 
 
+So far we have tested just one pixel for normality. 
+The figures below summarise the results after performing the normality tests for all the pixels in the chosen window. Red indicates the pixels that fail the normality tests. As can be seen, the majority of pixels fail the test.
 
+![Shapiro-Wilk test result for all window pixels](/img/posts/window_pixels_normality_results.png)
+
+
+ 
+
+ 
+ 
+ 
 &nbsp;
 
 #### References
