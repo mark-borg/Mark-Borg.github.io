@@ -212,7 +212,7 @@ We also observe some deviations in the tails of the distribution.
 So far we have tested just one pixel for normality. 
 The figures below summarise the results after performing the normality tests for all the pixels in the chosen window. Red indicates the pixels that fail the normality tests. As can be seen, the majority of pixels fail the test.
 
-![Shapiro-Wilk test result for all window pixels](/img/posts/window_pixels_normality_results.png)
+![Normality test result for all window pixels](/img/posts/window_pixels_normality_results.png)
 
 
  
