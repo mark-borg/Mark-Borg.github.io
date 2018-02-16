@@ -243,7 +243,7 @@ The results are still the same: the pixel data is reported as being non-normal b
 ## if (lambda < 0){TRANS = -1 * x ^ lambda}
 ```
 
-![Tukey transformations](/img/posts/tukey_data_transformation.png)
+![Tukey transformations](/img/posts/tukey_data_transformations.png)
 
 
 #### Dequantisation via Random Noise
