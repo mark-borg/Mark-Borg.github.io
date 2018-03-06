@@ -2,6 +2,7 @@
 
 The contents and images (but not the website source) are my work, unless otherwise stated.
 Please do not re-use with acknowledging.
+The blog site can be accessed from here: [mark-borg.github.io](https://mark-borg.github.io/).
 
 If you reuse the website source, please reference the original code done by pixelcog.com
 
