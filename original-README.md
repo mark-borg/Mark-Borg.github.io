@@ -1,12 +1,6 @@
-# This is the source for my blog site  "mark-borg.github.io"
+# PixelCog Website and Blog
 
-The contents and images (but not the website source) are my work, unless otherwise stated.
-Please do not re-use with acknowledging.
-
-If you reuse the website source, please reference the original code done by pixelcog.com
-
-The source for the website (but not the contents and images) is based on code from [pixelcog.com](http://pixelcog.com/)
-The License notice of the original code is reproduced below (the original readme file is also included: original-README.md)
+You can view this website at [pixelcog.com](http://pixelcog.com/)
 
 ## License
 
