@@ -468,6 +468,11 @@ And the state space graph is shown below:
 In this puzzle we have 2 possible shortest paths, both of lenth 17. Note also the number of side branches that terminate with a dead-end. A graph 
 searching algorithm will have to use *backtracking* a number of times here.
 
+### Code repository
+
+The code snippets used on this page can be found on [github](https://github.com/mark-borg/River-Crossing-Puzzles).
+There is also an R notebook that shows code usage, very similar to what has been done here.
+
 
 ### Concluding Thoughts
 
