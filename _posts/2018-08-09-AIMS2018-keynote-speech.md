@@ -28,9 +28,9 @@ breakthroughs in AI such as in playing Go.
 
 Finally, it is worth remembering that the current state-of-the-art in AI is based mostly on learning via data association and inductive reasoning (the first step on 
 [Judea Pearl's **`ladder of causation'**](https://www.wsj.com/articles/ai-cant-reason-why-1526657442)).
-Higher levels of reasoning (higher rungs on this metaphorical ladder) including reasoning via counterfactals are currently beyond the reach of modern AI. 
+Higher levels of reasoning (higher rungs on this metaphorical ladder) including **reasoning via counterfactuals** are currently beyond the reach of modern AI. 
 Achieving true artificial intelligence, especially of the benevolent type, will surely require such advanced AI. Hopefully when and if such a level is reached, the 
-values of AI systems will be aligned with the value systems of humankind.
+values of AI systems will be aligned with the value systems of humankind for the benefit of both.
 
 
 The slides of this presentation are [available on slideshare](https://www.slideshare.net/MarkBorg2/how-do-we-train-ai-to-be-ethical-and-unbiased).
