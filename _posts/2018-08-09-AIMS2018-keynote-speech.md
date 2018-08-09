@@ -35,7 +35,8 @@ values of AI systems will be aligned with the value systems of humankind.
 
 The slides of this presentation are [available on slideshare](https://www.slideshare.net/MarkBorg2/how-do-we-train-ai-to-be-ethical-and-unbiased).
 
-[![Slideshare](/img/posts/AIMS2018-slideshare-presentation.png)](https://www.slideshare.net/MarkBorg2/how-do-we-train-ai-to-be-ethical-and-unbiased)
+<iframe src="https://www.slideshare.net/MarkBorg2/slideshelf" width="760px" height="570px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+
 
 
 Comments are welcome.
