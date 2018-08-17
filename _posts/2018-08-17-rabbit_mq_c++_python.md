@@ -32,6 +32,7 @@ Applications in the image-processing pipeline can act as **producers** and/or **
 I created Python and C++ classes to encapsulate the messaging code. These are indicated by the blue boxes in the figure above. The code is [available as a github repository](https://github.com/mark-borg/python_cpp_messaging).
 Apart from the flexibility offerred by such a pipeline architecture, another advantage is that it can be deployed as a distributed system on various servers. The [RabbitMQ website](https://www.rabbitmq.com/tutorials/amqp-concepts.html) goes into more details about the features and types of architectures that can be built.
 
+[![C++ consumer](/img/posts/python_cpp_repo_link.png)](https://github.com/mark-borg/python_cpp_messaging)
 
 ### Components
 
