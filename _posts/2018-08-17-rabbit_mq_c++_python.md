@@ -57,9 +57,9 @@ The tests can run with either string-based messages or image-based messages. Jus
 
 The following screenshots show a Python script acting as the producer and a C++ application being the consumer:
 
-![Python producer](/img/posts/python_producer.jpg)
+![Python producer](/img/posts/python_producer.JPG)
 
-![C++ consumer](/img/posts/cpp_consumer.jpg)
+![C++ consumer](/img/posts/cpp_consumer.JPG)
 
 
 ### Test Results
