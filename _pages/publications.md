@@ -8,6 +8,14 @@ author: Mark Borg
 # Publications
 ------------------
 
+## 2019
+
+M. Borg, and K. P. Camilleri <br />
+**Sign Language Detection "in the Wild" with Recurrent Neural Networks** <br />
+*Proceedings of the 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)* <br />
+[URL](https://ieeexplore.ieee.org/document/8683257), [PDF](/papers/icassp_mb.pdf), [DOI](https://doi.org/10.1109/ICASSP.2019.8683257), [BibText](/papers/icassp_mb.bib), [Slides](/papers/icassp_mb_slides.pdf)
+
+<br />
 
 ## 2017
 
