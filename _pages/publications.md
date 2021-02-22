@@ -8,6 +8,25 @@ author: Mark Borg
 # Publications
 ------------------
 
+
+## 2021
+
+M. Borg, and K. P. Camilleri <br />
+**Phonologically-meaningful Subunits for Deep Learning-based Sign Language Recognition** <br />
+*In: A. Bartoli, and A. Fusiello (eds.) Computer Vision - ECCV 2020 Workshops. Lecture Notes in Computer Science, vol. 12536, Springer, Cham.* <br />
+[URL](https://link.springer.com/chapter/10.1007/978-3-030-66096-3_15), [PDF](https://slrtp.com/papers/full_papers/SLRTP.FP.02.012.paper.pdf), [DOI](https://doi.org/10.1007/978-3-030-66096-3_15)
+
+<br />
+
+## 2020
+
+J. A. Klein Bramel, L. Rello, and M. Borg <br />
+**A Virtual Reality Prototype for Dyslexia** <br />
+*Presented at the Workshop on Information Technologies and Systems (WITS)* <br />
+[URL](http://witsconf.org/wits2020-program-schedule/), [PDF](/papers/WITS2020.pdf)
+
+<br />
+
 ## 2019
 
 M. Borg, and K. P. Camilleri <br />
