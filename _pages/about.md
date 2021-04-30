@@ -15,7 +15,7 @@ nobio:     true
 
 &nbsp; 
 
-Hi, I'm **Mark Borg**: interested in computer vision, AI, machine learning, data science, computer programming, and anything that deals with technology.
+Hi, I'm **Mark Borg**: interested in data science, AI and machine learning, computer vision, computer programming, and anything that deals with technology.
 
 ### About this Site
 
